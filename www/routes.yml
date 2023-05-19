@@ -1,0 +1,16 @@
+routes:
+  - path: /
+    controller: controller\MainController
+    action: index
+  - path: /about
+    controller: controllers\MainController
+    action: about
+  - path: /contact
+    controller: controller\MainController
+    action: contact
+  - path: /login
+    controller: controller\SecurityController
+    action: login
+  - path: /logout
+    controller: controller\SecurityController
+    action: logout
