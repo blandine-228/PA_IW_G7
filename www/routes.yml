@@ -1,6 +1,6 @@
 routes:
   - path: /
-    controller: controller\MainController
+    controller: MainController
     action: index
   - path: /about
     controller: controllers\MainController
