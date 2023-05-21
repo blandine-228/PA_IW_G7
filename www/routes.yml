@@ -3,14 +3,14 @@ routes:
     controller: MainController
     action: index
   - path: /about
-    controller: controllers\MainController
+    controller: Controllers\MainController
     action: about
   - path: /contact
-    controller: controller\MainController
+    controller: Controllers\MainController
     action: contact
   - path: /login
-    controller: controller\SecurityController
+    controller: Controllers\SecurityController
     action: login
   - path: /logout
-    controller: controller\SecurityController
+    controller: Controllers\SecurityController
     action: logout
