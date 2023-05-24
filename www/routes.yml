@@ -1,16 +1,27 @@
-routes:
-  - path: /
-    controller: MainController
-    action: index
-  - path: /about
-    controller: Controllers\MainController
-    action: about
-  - path: /contact
-    controller: Controllers\MainController
-    action: contact
-  - path: /login
-    controller: Controllers\SecurityController
-    action: login
-  - path: /logout
-    controller: Controllers\SecurityController
-    action: logout
+default:
+  controller: Main
+  action: home
+
+a-propos:
+  controller: Main
+  action: aboutUs
+
+about-us:
+  controller: Main
+  action: aboutUs
+
+contact:
+  controller: Main
+  action: contact
+
+login:
+  controller: Auth
+  action: login
+
+logout:
+  controller: Auth
+  action: logout
+
+s-inscrire:
+  controller: Auth
+  action: register
