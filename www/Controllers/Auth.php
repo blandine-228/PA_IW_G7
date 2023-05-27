@@ -14,9 +14,9 @@ class Auth
     public function register(): void
     {
         $user = new User();
-        $user->setFirstname("yVEs");
-        $user->setLastname("SKrzYPczYK");
-        $user->setEmail("y.SKRZypczyk@GMAil.com");
+        $user->setFirstname("admin");
+        $user->setLastname("paw1");
+        $user->setEmail("admin@admin.com");
         $user->setPwd("Test1234");
         $user->setCountry("FR");
         $user->save();
