@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Dashboard</h1>
+        <h1>Tableau de bord</h1>
         <div class="dashboard">
             <?php if (!empty($data)): ?>
                 <?php foreach ($data as $item): ?>
