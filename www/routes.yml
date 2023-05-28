@@ -25,3 +25,7 @@ logout:
 s-inscrire:
   controller: Auth
   action: register
+
+dashboard:
+  controller: Dashboard
+  action: index

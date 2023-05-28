@@ -2,7 +2,6 @@
 
 namespace App;
 
-//require "Core/View.php";
 
 spl_autoload_register(function ($class) {
 
@@ -17,8 +16,6 @@ spl_autoload_register(function ($class) {
         include $class;
     }
 });
-
-
 
 
 //Afficher le controller et l'action correspondant à l'URI
