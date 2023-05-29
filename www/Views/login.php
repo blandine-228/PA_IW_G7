@@ -4,7 +4,7 @@
     <title>Page de connexion</title>
 </head>
 <body>
-    <h2>Page de connexion:</h2>
+    <h2>Page de connexion:  </h2>
     <form method="POST" action="/login">
         <label for="username">Nom d'utilisateur:</label>
         <input type="text" name="username" id="username" required><br><br>

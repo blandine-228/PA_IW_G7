@@ -17,6 +17,12 @@ spl_autoload_register(function ($class) {
     }
 });
 
+//Diriger directement vers la partie login 
+if ($_SERVER['REQUEST_URI'] === 'login') {
+    $loginController = new \Controllers\Auth();
+    $loginController->login();
+    exit();
+}
 
 //Afficher le controller et l'action correspondant à l'URI
 
