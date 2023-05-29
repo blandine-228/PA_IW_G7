@@ -8,7 +8,19 @@ class Auth
 {
     public function login(): void
     {
-        echo "Page de connexion";
+      
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Récupérez les données de connexion soumises
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            // Redirigez l'utilisateur vers une page appropriée après la connexion réussie
+            header("Location: dashboard.php");
+            exit();
+        }
+
+        // Affichez le formulaire de connexion
+        include 'Views/login.php';
     }
 
     public function register(): void
