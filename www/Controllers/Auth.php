@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Core\View;
+use App\Forms\Register;
 use App\Models\User;
 
 class Auth
@@ -25,13 +27,21 @@ class Auth
 
     public function register(): void
     {
-        $user = new User();
-        $user->setFirstname("admin");
-        $user->setLastname("paw1");
-        $user->setEmail("admin@admin.com");
-        $user->setPwd("Test1234");
-        $user->setCountry("FR");
-        $user->save();
+        $form = new Register();
+        $view = new View("Auth/register", "front");
+        $view->assign("form", $form->getConfig());
+
+        //Form validé ? et correct ?
+        if($form->isSubmited() && $form->isValid()){
+            $user = new User();
+            $user->setFirstname();
+            $user->setLastname();
+            $user->setEmail();
+            $user->setPwd();
+            $user->save();
+        }
+        $view->assign("formErrors", $form->errors);
+
 
     }
 

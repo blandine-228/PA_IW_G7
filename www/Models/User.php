@@ -16,7 +16,7 @@ class User extends SQL
     private \DateTime $date_updated;
 
     public function __construct(){
-
+        parent::__construct();
     }
 
     /**

@@ -10,11 +10,15 @@ spl_autoload_register(function ($class) {
     //$class = Core\View
     $class = str_replace("\\","/", $class);
     //$class = Core/View
+    $classForm = $class.".form.php";
     $class = $class.".php";
     //$class = Core/View.php
     if(file_exists($class)){
         include $class;
+    }else if(file_exists($classForm)){
+        include $classForm;
     }
+
 });
 
 //Diriger directement vers la partie login 
@@ -50,10 +54,6 @@ if(empty($routes[$uri]["controller"]) || empty($routes[$uri]["action"]) ){
 
 $controller = $routes[$uri]["controller"];
 $action = $routes[$uri]["action"];
-
-
-// $controller => Auth ou Main
-// $action=> home ou login
 
 
 if(!file_exists("Controllers/".$controller.".php")){
