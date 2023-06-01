@@ -13,6 +13,7 @@ class Dashboard {
         // Chargez la vue du tableau de bord avec les données
         require 'Views/DashboardView.php';
     }
+  
     
 }
 
