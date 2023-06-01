@@ -29,3 +29,8 @@ s-inscrire:
 admin:
   controller: Dashboard
   action: admin
+
+admin/page:
+  title: Liste des pages
+  controller: Page
+  action: main
