@@ -6,7 +6,7 @@ use Models\DashboardModel;
 
 class Dashboard {
 
-    public function index() {
+    public function admin() {
         $model = new DashboardModel();
         $data = $model->getData();
 
