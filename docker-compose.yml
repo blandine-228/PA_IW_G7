@@ -16,9 +16,9 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: esgi
-      POSTGRES_USER: esgi
-      POSTGRES_PASSWORD: Test1234
+      POSTGRES_DB: pa-iw
+      POSTGRES_USER: pa-iw
+      POSTGRES_PASSWORD: Response11
 
   adminer:
     image: adminer
