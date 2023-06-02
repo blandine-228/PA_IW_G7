@@ -17,6 +17,9 @@
                 <?php endforeach; ?>
             <?php else: ?>
                 <p>Aucune donnée disponible pour le tableau de bord.</p>
+                <p><a href="index.php?page=dashboard&action=add">Ajouter un article</a></p>
+                
+
             <?php endif; ?>
         </div>
     </div>

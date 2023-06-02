@@ -26,6 +26,11 @@ s-inscrire:
   controller: Auth
   action: register
 
-dashboard:
+admin:
   controller: Dashboard
-  action: index
+  action: admin
+
+admin/page:
+  title: Liste des pages
+  controller: Page
+  action: main
