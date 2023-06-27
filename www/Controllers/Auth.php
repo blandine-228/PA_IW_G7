@@ -73,6 +73,7 @@ class Auth
     public function logout(): void
     {
         echo "Page de déconnexion";
+        session_destroy();
         header('Location: /login');
         exit;
     }
