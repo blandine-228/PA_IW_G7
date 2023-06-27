@@ -18,19 +18,19 @@ class Validator
     {
         //La bonne method ?
         if($_SERVER["REQUEST_METHOD"] != $this->method){
-            die("Tentative de Hack");
+            die("Tentative de Hack 1");
         }
         //Le nb de inputs
         if(count($this->config["inputs"])+1 != count($this->data)){
-            die("Tentative de Hack");
+            die("Tentative de Hack ");
         }
 
         foreach ($this->config["inputs"] as $name=>$configInput){
             if(!isset($this->data[$name])){
-                die("Tentative de Hack");
+                die("Tentative de Hack 3");
             }
             if(isset($configInput["required"]) && self::isEmpty($this->data[$name])){
-                die("Tentative de Hack");
+                die("Tentative de Hack 4");
             }
             if(isset($configInput["min"]) && !self::isMinLength($this->data[$name], $configInput["min"])){
                 $this->errors[]=$configInput["error"];
