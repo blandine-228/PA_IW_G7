@@ -53,5 +53,16 @@ class View {
         include $this->template;
     }
 
+    public function render(): string
+    {
+        extract($this->data);
+        ob_start();
+        include $this->view;
+        $content = ob_get_clean();
+        ob_start();
+        include $this->template;
+        return ob_get_clean();
+    }
+
 
 }

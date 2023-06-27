@@ -1,18 +1,25 @@
 <?php
 
-
 namespace App\Controllers;
-use Models\DashboardModel;
 
-class Dashboard {
+use App\Core\View;
 
-    public function index() {
-        $model = new DashboardModel();
-        $data = $model->getData();
+class Dashboard
+{
+    public function index(): void
+    {
+        // Vous pouvez effectuer ici toutes les opérations nécessaires pour récupérer les données à afficher sur le tableau de bord
 
-        // Chargez la vue du tableau de bord avec les données
-        require 'Views/DashboardView.php';
+        // Par exemple, récupérer la liste des articles, les statistiques, etc.
+
+        // Créer une instance de la classe View et lui passer le nom de la vue à afficher (dashboard.view.php) ainsi que le nom du template (front.tpl.php ou back.tpl.php selon votre configuration)
+        $view = new View('dashboard', 'back');
+
+        // Assigner les données récupérées à la vue, par exemple :
+        //$view->assign('articles', $articles);
+        //$view->assign('statistics', $statistics);
+
+        // Afficher la vue
+        $view->render();
     }
-    
 }
-

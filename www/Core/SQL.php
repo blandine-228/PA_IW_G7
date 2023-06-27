@@ -11,7 +11,7 @@ abstract class SQL{
         //Connexion à la bdd
         //SINGLETON à réaliser
         try {
-            $this->pdo = new \PDO("pgsql:host=database;dbname=esgi;port=5432", "esgi", "Test1234");
+            $this->pdo = new \PDO("pgsql:host=database;dbname=pa-iw;port=5432", "pa-iw", "Response11");
         }catch(\Exception $e){
             die("Erreur SQL : ".$e->getMessage());
         }

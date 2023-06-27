@@ -1,15 +1,11 @@
 <?php
-
 namespace App\Forms;
 use App\Core\Validator;
 
 class Register extends Validator
 {
     public $method = "POST";
-
     protected array $config = [];
-
-
     public function getConfig(): array
     {
         $this->config = [

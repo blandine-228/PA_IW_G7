@@ -2,6 +2,7 @@
 
 namespace App;
 
+//require "Core/View.php";
 
 spl_autoload_register(function ($class) {
 
@@ -18,15 +19,10 @@ spl_autoload_register(function ($class) {
     }else if(file_exists($classForm)){
         include $classForm;
     }
-
 });
 
-//Diriger directement vers la partie login 
-if ($_SERVER['REQUEST_URI'] === 'login') {
-    $loginController = new \Controllers\Auth();
-    $loginController->login();
-    exit();
-}
+
+
 
 //Afficher le controller et l'action correspondant à l'URI
 
@@ -54,6 +50,10 @@ if(empty($routes[$uri]["controller"]) || empty($routes[$uri]["action"]) ){
 
 $controller = $routes[$uri]["controller"];
 $action = $routes[$uri]["action"];
+
+
+// $controller => Auth ou Main
+// $action=> home ou login
 
 
 if(!file_exists("Controllers/".$controller.".php")){
