@@ -1,14 +1,12 @@
 <?php
 namespace App\Core;
 
-class SQL{
+abstract class SQL{
 
     private $pdo;
     private $table;
 
-    private static ?SQL $instance = null;
-
-    private function __construct()
+    public function __construct()
     {
         //Connexion à la bdd
         //SINGLETON à réaliser
@@ -21,15 +19,6 @@ class SQL{
         //$this->table = static::class;
         $classExploded = explode("\\", get_called_class());
         $this->table = "esgi_".end($classExploded);
-    }
-
-    public static function getInstance(): SQL
-    {
-        if(is_null(self::$instance)){
-            self::$instance = new SQL();
-        }
-
-        return self::$instance;
     }
 
     public static function populate(Int $id): object
@@ -50,6 +39,7 @@ class SQL{
         $queryPrepared->execute($where);
         return $queryPrepared->fetch();
     }
+
 
     public function save(): void
     {

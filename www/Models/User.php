@@ -15,7 +15,7 @@ class User extends SQL
     private ?String $date_updated;
 
     public function __construct(){
-        SQL::getInstance();
+        parent::__construct();
     }
 
     /**
@@ -98,6 +98,9 @@ class User extends SQL
         $this->pwd = password_hash($pwd, PASSWORD_DEFAULT);
     }
 
+  
+
+   
     /**
      * @return Int
      */
@@ -145,5 +148,7 @@ class User extends SQL
     {
         $this->date_updated = $date_updated;
     }
+
+
 
 }
