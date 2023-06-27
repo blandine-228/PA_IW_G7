@@ -18,7 +18,7 @@ class Auth
         $view->assign("formErrors", $form->errors);
     
         // Formulaire soumis et valide
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmited() && $form->isValid()) {
             $email = $_POST['email'];
             $password = $_POST['password'];
     
@@ -26,8 +26,16 @@ class Auth
             // Vous pouvez utiliser votre modèle User pour vérifier les informations de connexion
             // et authentifier l'utilisateur
     
-            // Exemple de vérification basique (à personnaliser selon votre logique d'authentification)
-            if ($email === 'dine@example.com' && $password === 'dine@example.com') {
+            // Si l'authentification est réussie, rediriger l'utilisateur vers le tableau de bord
+            // Sinon, afficher un message d'erreur
+            //verifier si l'utilisateur existe  dans la base de données
+            $user = new User();
+
+            // Chercher l'utilisateur par email
+            $user = $user->getOneWhere(["email" => $email]);
+    
+            // Vérifier si l'utilisateur existe et le mot de passe est correct
+            if ($user && password_verify($password, $user->getPwd())){
                 // Authentification réussie
                 // Redirigez l'utilisateur vers la page d'accueil ou une autre page appropriée
                 header('Location: /dashboard');
@@ -35,8 +43,9 @@ class Auth
             } else {
                 // Authentification échouée
                 // Ajoutez un message d'erreur à afficher dans le formulaire de connexion
-                $form->addError("Les informations de connexion sont incorrectes.");
+               echo "Erreur d'authentification";
             }
+
         }
     
         // Afficher le formulaire de connexion

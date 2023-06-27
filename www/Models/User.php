@@ -149,6 +149,4 @@ class User extends SQL
         $this->date_updated = $date_updated;
     }
 
-
-
 }

@@ -40,7 +40,6 @@ abstract class SQL{
         return $queryPrepared->fetch();
     }
 
-
     public function save(): void
     {
         $columns = get_object_vars($this);
