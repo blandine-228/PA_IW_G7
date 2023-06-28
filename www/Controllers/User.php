@@ -5,12 +5,13 @@ use App\Core\View;
 use App\Forms\CreateUserForm;
 use App\Forms\UpdateUserForm;
 use App\Forms\DeleteUserForm;
-use App\Models\User;
+use App\Models\User as UserModel;
+use App\Forms\UserForm;
 
-class UserController {
+class User {
     public function read() {
         // Récupérer tous les utilisateurs
-        $user = new User();
+        $user = new UserModel();
         $allUsers = $user->getAll();
 
         // Utilisez $allUsers pour renvoyer ou afficher les utilisateurs
@@ -18,21 +19,29 @@ class UserController {
         $view->assign("users", $allUsers);
     }
 
-    public function create() {
-        $form = new CreateUserForm();
+    public function create(): void
+    {
+        $form = new UserForm();
         $view = new View("User/create", "back");
         $view->assign("form", $form->getConfig());
         $view->assign("formErrors", $form->errors);
-
-        // Form valid and submitted?
+    
         if($form->isSubmited() && $form->isValid()){
-            // Créer l'utilisateur...
+            $user = new UserModel();
+            $user->setFirstname($_POST['firstname']);
+            $user->setLastname($_POST['lastname']);
+            $user->setEmail($_POST['email']);
+            $user->setPwd(password_hash($_POST['password'], PASSWORD_BCRYPT));
+            $user->setRole($_POST['role']);
+            $user->setStatus(1); // Mettre le statut à 1, puisque l'admin crée l'utilisateur
+            $user->save();
         }
     }
+    
 
     public function update($id) {
         // Récupérer l'utilisateur
-        $user = User::getOne($id);
+        $user = UserModel::getOne($id);
 
         $form = new UpdateUserForm();
         $view = new View("User/update", "back");
@@ -46,7 +55,7 @@ class UserController {
 
     public function delete($id) {
         // Récupérer l'utilisateur
-        $user = User::getOne($id);
+        $user = UserModel::getOne($id);
 
         $form = new DeleteUserForm();
         $view = new View("User/delete", "back");

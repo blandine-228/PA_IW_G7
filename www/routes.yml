@@ -39,22 +39,22 @@ verify:
   action: verify
 
 user_read:
-    controller: UserController
+    controller: User
     action: read
 
 user_create:
     path: /user/create
-    controller: UserController
+    controller: User
     action: create
 
 user_update:
     path: /user/update/{id}
-    controller: UserController
+    controller: User
     action: update
-    
+
 user_delete:
     path: /user/delete/{id}
-    controller: UserController
+    controller: User
     action: delete
 
 # STEP 1 : ajotuer la nouvelle route
