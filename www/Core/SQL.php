@@ -1,10 +1,12 @@
 <?php
 namespace App\Core;
 
-abstract class SQL{
+class SQL{
 
     protected $pdo;
     protected $table;
+
+    private static ?SQL $instance = null;
 
     public function __construct()
     {
@@ -15,8 +17,16 @@ abstract class SQL{
         }catch(\Exception $e){
             die("Erreur SQL : " . $e->getMessage());
         }
-
         //$this->table = static::class
+    }
+
+    public static function getInstance(): SQL
+    {
+        if(is_null(self::$instance)){
+            self::$instance = new SQL();
+        }
+
+        return  self::$instance;
     }
 
     public static function populate(Int $id): object

@@ -39,13 +39,6 @@ class Auth
             }
 
         }
-    
-        // Afficher le formulaire de connexion
-        $view->render();
-        //redirection vers la page dashboard
-        /*header('Location: /dashboard.php');
-        exit;*/
-        
     }
 
     public function register(): void

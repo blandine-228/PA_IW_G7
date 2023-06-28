@@ -16,13 +16,20 @@
 
     ul{
       font-family: $title-font;
-      font-size: 24px;
+      font-size: 16px;
       font-weight: 700;
+      text-transform: uppercase;
+      list-style: none;
 
       li{
         font-family: $text-font;
         font-weight: normal;
         font-size: 16px;
+        text-transform: none;
+      }
+
+      li:first-of-type{
+        margin-top: 8px;
       }
     }
   }
