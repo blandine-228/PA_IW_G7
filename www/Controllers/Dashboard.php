@@ -3,22 +3,40 @@
 namespace App\Controllers;
 
 use App\Core\View;
+use App\Models\DashboardModel;
+use App\Core\SQL;
+use PDO;
 
 class Dashboard
 {
+
+    private $pdo;
+
+    public function __construct()
+    {
+        try {
+            $this->pdo = new \PDO("pgsql:host=database;dbname=pa-iw;port=5432", "pa-iw", "Response11");
+        }catch(\Exception $e){
+            die("Erreur SQL : ".$e->getMessage());
+        }
+        $classExploded = explode("\\", get_called_class());
+        $this->table = "esgi_".end($classExploded);
+    }
+
+
+    public function index() {
+        $view = new View('dashboard', 'back');
+        $dashboardModel = new DashboardModel($this->pdo);
+        $data = $dashboardModel->getAllData();
+
+        //var_dump($data);
+    
+        require_once(__DIR__ .'/../Views/dashboard.view.php');
+    }
+ /*   
     public function index(): void
     {
-        // Vous pouvez effectuer ici toutes les opérations nécessaires pour récupérer les données à afficher sur le tableau de bord
-
-        // Par exemple, récupérer la liste des articles, les statistiques, etc.
-
-        // Créer une instance de la classe View et lui passer le nom de la vue à afficher (dashboard.view.php) ainsi que le nom du template (front.tpl.php ou back.tpl.php selon votre configuration)
-
-       
-
-         
-
-        $view = new View('dashboard', 'back');
+         $view = new View('dashboard', 'back');
 
         // Assigner les données récupérées à la vue, par exemple :
         //$view->assign('articles', $articles);
@@ -27,4 +45,6 @@ class Dashboard
         // Afficher la vue
         $view->render();
     }
+
+    */
 }

@@ -6,7 +6,26 @@
 </head>
 <body>
     <h1>Tableau de bord</h1>
-    <!-- Ajoutez ici le contenu spécifique à afficher dans le tableau de bord -->
+
+    <table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if (isset($data)): ?>
+            <?php foreach ($data as $row): ?>
+                <tr>
+                    <td><?php echo $row['firstname']; ?></td>
+                    <td><?php echo $row['lastname']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </tbody>
+</table>
+  
 
     <a href="/logout">Déconnexion</a> <!-- Lien de déconnexion -->
 
