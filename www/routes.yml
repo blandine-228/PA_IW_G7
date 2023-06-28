@@ -18,6 +18,10 @@ login:
   controller: Auth
   action: login
 
+mail:
+  controller: Auth
+  action: mail
+
 logout:
   controller: Auth
   action: logout
@@ -29,6 +33,10 @@ s-inscrire:
 dashboard:
   controller: Dashboard
   action: index
+
+verify:
+  controller: Auth
+  action: verify
 
 # STEP 1 : ajotuer la nouvelle route
 # STEP 2 : créer la fonction dans le controller désigné dans la route

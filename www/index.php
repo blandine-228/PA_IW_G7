@@ -4,6 +4,11 @@ namespace App;
 
 //require "Core/View.php";
 
+
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';   
+require 'PHPMailer/src/Exception.php';   
+
 spl_autoload_register(function ($class) {
 
     //$class = App\Core\View

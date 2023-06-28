@@ -13,6 +13,8 @@ class User extends SQL
     protected Int $status = 0;
     private ?String $date_inserted;
     private ?String $date_updated;
+    protected String $role = "user"; // Nouvel attribut pour le rôle
+    protected ?String $verificationToken;
 
     public function __construct(){
         parent::__construct();
@@ -150,5 +152,42 @@ class User extends SQL
     }
 
 
+     /**
+     * @return String
+     */
+    public function getRole(): string
+    {
+        return $this->role;
+    }
 
+    /**
+     * @param String $role
+     */
+    public function setRole(?string $role): void
+    {
+        $this->role = $role;
+    }
+    
+
+  
+    
+
+    
+    
+
+    /**
+     * @return String
+     */
+    public function getVerificationToken(): ?string
+    {
+        return $this->verificationToken;
+    }
+
+    /**
+     * @param String $verificationToken
+     */
+    public function setVerificationToken(string $verificationToken): void
+    {
+        $this->verificationToken = $verificationToken;
+    }
 }
