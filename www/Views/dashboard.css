@@ -60,3 +60,15 @@ footer {
     padding: 10px;
     text-align: center;
 }
+
+
+/* Media queries */
+@media (max-width: 768px) {
+    section.main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .widget {
+        margin-bottom: 20px;
+    }
+}

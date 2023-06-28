@@ -29,6 +29,14 @@ class Dashboard
         $dashboardModel = new DashboardModel($this->pdo);
         $data = $dashboardModel->getAllData();
 
+        $chartData = [];
+
+        foreach ($data as $row) {
+            $chartData[] = [
+                'name' => $row['firstname'],
+                'y' => (int) $row['lastname']
+            ];
+        }
         //var_dump($data);
     
         require_once(__DIR__ .'/../Views/dashboard.view.php');

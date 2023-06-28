@@ -3,6 +3,7 @@
 <head>
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="../Views/dashboard.css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <body>
     <header>
@@ -21,6 +22,7 @@
             <h2>Statistiques</h2>
             <div class="widget-content">
                 <!-- Contenu du widget de statistiques -->
+                <div id="chart-container"></div>
             </div>
         </div>
         <div class="widget">
@@ -39,5 +41,43 @@
     <footer>
         <p>© 2023 ESGI Dashboard. Tous droits réservés.</p>
     </footer>
+
+    <script>
+        var data = [
+  ['Janvier', 100],
+  ['Février', 200],
+  ['Mars', 150],
+  // Ajoutez plus de données ici
+];
+
+// Configuration du graphique
+var chartOptions = {
+  chart: {
+    type: 'pie' // Type de graphique, par exemple 'line', 'bar', 'pie', etc.
+  },
+  title: {
+    text: 'Statistiques mensuelles'
+  },
+  xAxis: {
+    type: 'category',
+    title: {
+      text: 'Mois'
+    }
+  },
+  yAxis: {
+    title: {
+      text: 'Valeur'
+    }
+  },
+  series: [{
+    name: 'Statistiques',
+    data: data // Utilisez vos données réelles ici
+  }]
+};
+
+// Création du graphique
+Highcharts.chart('chart-container', chartOptions);
+
+    </script>
 </body>
 </html>
