@@ -4,8 +4,16 @@ services:
     build: site
     ports :
      - "80:80"
+    environment:
+      WWW_PATH: ../www/
+      DB_TYPE: pgsql
+      DB_HOST: database
+      DB_NAME: pa-iw
+      DB_PORT: 5432
+      DB_USERNAME: pa-iw
+      DB_PASSWORD: Response11
     volumes:
-     - ./www:/var/www/html/
+     - .:/var/www/html/
      - ./server/000-default.conf:/etc/apache2/sites-available/000-default.conf
      - ./server/apache2.conf:/etc/apache2/apache2.conf
      - ./server/php.ini:/usr/local/etc/php/php.ini

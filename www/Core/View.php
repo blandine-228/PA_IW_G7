@@ -23,7 +23,7 @@ class View {
      */
     public function setView(string $view): void
     {
-        $this->view = "Views/".$view.".view.php";
+        $this->view = WWW_PATH . "Views/".$view.".view.php";
         if(!file_exists($this->view)){
             die("La vue ".$this->view." n'existe pas");
         }
@@ -34,7 +34,7 @@ class View {
      */
     public function setTemplate(string $template): void
     {
-        $this->template = "Views/".$template.".tpl.php";
+        $this->template = WWW_PATH . "Views/".$template.".tpl.php";
         if(!file_exists($this->template)){
             die("Le template ".$this->template." n'existe pas");
         }
@@ -42,27 +42,14 @@ class View {
 
     public function partial(String $name, array $config, $errors = []): void
     {
-        if(!file_exists("Views/Partials/".$name.".ptl.php")){
+        if(!file_exists(WWW_PATH . "Views/Partials/".$name.".ptl.php")){
             die("Le partial ".$name." n'existe pas");
         }
-        include "Views/Partials/".$name.".ptl.php";
+        include WWW_PATH . "Views/Partials/".$name.".ptl.php";
     }
 
     public function __destruct(){
         extract($this->data);
         include $this->template;
     }
-
-    public function render(): string
-    {
-        extract($this->data);
-        ob_start();
-        include $this->view;
-        $content = ob_get_clean();
-        ob_start();
-        include $this->template;
-        return ob_get_clean();
-    }
-
-
 }

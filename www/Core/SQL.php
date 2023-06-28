@@ -3,22 +3,20 @@ namespace App\Core;
 
 abstract class SQL{
 
-    private $pdo;
-    private $table;
+    protected $pdo;
+    protected $table;
 
     public function __construct()
     {
         //Connexion à la bdd
         //SINGLETON à réaliser
         try {
-            $this->pdo = new \PDO("pgsql:host=database;dbname=pa-iw;port=5432", "pa-iw", "Response11");
+            $this->pdo = new \PDO(DB_TYPE . ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT, DB_USERNAME, DB_PASSWORD);
         }catch(\Exception $e){
-            die("Erreur SQL : ".$e->getMessage());
+            die("Erreur SQL : " . $e->getMessage());
         }
 
-        //$this->table = static::class;
-        $classExploded = explode("\\", get_called_class());
-        $this->table = "esgi_".end($classExploded);
+        //$this->table = static::class
     }
 
     public static function populate(Int $id): object

@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Super site</title>
     <meta name="description" content="ceci est un super site">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <title>Super site</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
-<body>
- 
+<body class="dashboard-body">
+    <nav class="dashboard-nav">
+        <ul>
+            Accueil
+            <li>Panel</li>
+        </ul>
 
-    <!-- inclure la vue -->
-   
+        <ul>
+            Personnalisation
+            <li>Menu du site</li>
+            <li>Couleurs principales du site</li>
+            <li>Typographies</li>
+            <li></li>
+        </ul>
+    </nav>
+
+    <main role="main">
+        <!-- inclure la vue -->
+        <?php include $this->view;?>
+    </main>
+
 
 </body>
 </html>

@@ -15,7 +15,15 @@ class User extends SQL
     private ?String $date_updated;
 
     public function __construct(){
-        parent::__construct();
+        $sql = SQL::getInstance();
+        $this->table = $this->getTable();
+        $this->pdo = $sql->pdo;
+    }
+
+    public function getTable()
+    {
+        $classExploded = explode("\\", get_class());
+        return "esgi_".end($classExploded);
     }
 
     /**
@@ -98,9 +106,6 @@ class User extends SQL
         $this->pwd = password_hash($pwd, PASSWORD_DEFAULT);
     }
 
-  
-
-   
     /**
      * @return Int
      */
@@ -148,7 +153,4 @@ class User extends SQL
     {
         $this->date_updated = $date_updated;
     }
-
-
-
 }

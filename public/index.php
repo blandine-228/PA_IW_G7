@@ -5,7 +5,6 @@ namespace App;
 //require "Core/View.php";
 
 spl_autoload_register(function ($class) {
-
     //$class = App\Core\View
     $class = str_replace("App\\","", $class);
     //$class = Core\View
@@ -14,18 +13,14 @@ spl_autoload_register(function ($class) {
     $classForm = $class.".form.php";
     $class = $class.".php";
     //$class = Core/View.php
-    if(file_exists($class)){
-        include $class;
-    }else if(file_exists($classForm)){
-        include $classForm;
+    if(file_exists(WWW_PATH .$class)){
+        include WWW_PATH . $class;
+    }else if(file_exists(WWW_PATH . $classForm)){
+        include WWW_PATH . $classForm;
     }
 });
 
-
-
-
 //Afficher le controller et l'action correspondant à l'URI
-
 $uri = $_SERVER["REQUEST_URI"];
 $uriExploded = explode("?", $uri);
 $uri = strtolower(trim( $uriExploded[0], "/"));
@@ -34,11 +29,12 @@ if(empty($uri)){
     $uri = "default";
 }
 
-if(!file_exists("routes.yml")){
+if(!file_exists(WWW_PATH . "routes.yml")){
+    var_dump(getenv("WWW_PATH"));
     die("Le fichier routes.yml n'existe pas");
 }
 
-$routes = yaml_parse_file("routes.yml");
+$routes = yaml_parse_file(WWW_PATH . "routes.yml");
 
 if(empty($routes[$uri])){
     die("Page 404");
@@ -56,10 +52,10 @@ $action = $routes[$uri]["action"];
 // $action=> home ou login
 
 
-if(!file_exists("Controllers/".$controller.".php")){
+if(!file_exists(WWW_PATH . "Controllers/".$controller.".php")){
     die("Le fichier Controllers/".$controller.".php n'existe pas");
 }
-include "Controllers/".$controller.".php";
+include WWW_PATH . "Controllers/".$controller.".php";
 
 $controller = "\\App\\Controllers\\".$controller;
 

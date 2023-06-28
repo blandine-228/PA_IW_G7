@@ -37,9 +37,6 @@ class Dashboard
                 'y' => (int) $row['lastname']
             ];
         }
-        //var_dump($data);
-    
-        require_once(__DIR__ .'/../Views/dashboard.view.php');
     }
  /*   
     public function index(): void
