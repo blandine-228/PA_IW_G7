@@ -38,6 +38,25 @@ verify:
   controller: Auth
   action: verify
 
+user_read:
+    controller: UserController
+    action: read
+
+user_create:
+    path: /user/create
+    controller: UserController
+    action: create
+
+user_update:
+    path: /user/update/{id}
+    controller: UserController
+    action: update
+    
+user_delete:
+    path: /user/delete/{id}
+    controller: UserController
+    action: delete
+
 # STEP 1 : ajotuer la nouvelle route
 # STEP 2 : créer la fonction dans le controller désigné dans la route
 # STEP 1 : créer un ficher X.form.php dans lequel tu décris les configs

@@ -40,6 +40,15 @@ abstract class SQL{
         return $queryPrepared->fetch();
     }
 
+    public function getAll(): array
+{
+    $queryPrepared = $this->pdo->prepare("SELECT * FROM ".$this->table);
+    $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+    $queryPrepared->execute();
+    return $queryPrepared->fetchAll();
+}
+
+
 
     public function save(): void
     {
