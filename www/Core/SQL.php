@@ -28,7 +28,7 @@ abstract class SQL{
         return $objet->getOneWhere(["id"=>$id]);
     }
 
-    public function getOneWhere(array $where): object
+    public function getOneWhere(array $where): ?object
     {
         $sqlWhere = [];
         foreach ($where as $column=>$value) {
@@ -37,9 +37,11 @@ abstract class SQL{
         $queryPrepared = $this->pdo->prepare("SELECT * FROM ".$this->table." WHERE ".implode(" AND ", $sqlWhere));
         $queryPrepared->setFetchMode( \PDO::FETCH_CLASS, get_called_class());
         $queryPrepared->execute($where);
-        return $queryPrepared->fetch();
+        $result = $queryPrepared->fetch();
+        
+        return $result !== false ? $result : null;
     }
-
+    
     public function getAll(): array
 {
     $queryPrepared = $this->pdo->prepare("SELECT * FROM ".$this->table);
