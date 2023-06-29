@@ -19,6 +19,7 @@ class Dashboard
          
 
         $view = new View('dashboard', 'back');
+        
 
         // Assigner les données récupérées à la vue, par exemple :
         //$view->assign('articles', $articles);

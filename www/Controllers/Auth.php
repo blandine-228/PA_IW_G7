@@ -30,13 +30,7 @@ class Auth
             $email = $_POST['email'];
             $password = $_POST['password'];
     
-            // Effectuer les vérifications d'authentification
-            // Vous pouvez utiliser votre modèle User pour vérifier les informations de connexion
-            // et authentifier l'utilisateur
-    
-            // Si l'authentification est réussie, rediriger l'utilisateur vers le tableau de bord
-            // Sinon, afficher un message d'erreur
-            //verifier si l'utilisateur existe  dans la base de données
+        
             $user = new User();
 
             // Chercher l'utilisateur par email

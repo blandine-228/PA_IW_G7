@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Core\View;
+use App\datatable\userTable;
 use App\Forms\CreateUserForm;
 use App\Forms\UpdateUserForm;
 use App\Forms\DeleteUserForm;
@@ -11,12 +12,16 @@ use App\Forms\UserForm;
 class User {
     public function read() {
         // Récupérer tous les utilisateurs
-        $user = new UserModel();
+        $user =  UserModel::getInstance();
         $allUsers = $user->getAll();
+     
+        $table = new userTable($allUsers);
 
-        // Utilisez $allUsers pour renvoyer ou afficher les utilisateurs
         $view = new View("User/read", "back");
-        $view->assign("users", $allUsers);
+        $view->assign("table", $table->getConfig($allUsers));
+
+       
+       
     }
 
     public function create(): void
