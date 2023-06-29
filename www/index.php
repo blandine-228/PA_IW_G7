@@ -8,7 +8,7 @@ namespace App;
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';   
 require 'PHPMailer/src/Exception.php';   
-
+session_start();
 spl_autoload_register(function ($class) {
 
     //$class = App\Core\View
@@ -77,4 +77,4 @@ if(!method_exists($objController, $action)){
     die("L'action ".$action." n'existe pas");
 }
 
-$objController->$action();
+$objController->$action($_GET);

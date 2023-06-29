@@ -190,4 +190,5 @@ class User extends SQL
     {
         $this->verificationToken = $verificationToken;
     }
+
 }

@@ -37,15 +37,17 @@ class Auth
             // Si l'authentification est réussie, rediriger l'utilisateur vers le tableau de bord
             // Sinon, afficher un message d'erreur
             //verifier si l'utilisateur existe  dans la base de données
-            $user = new User();
+            $userModel = User::getInstance();
+            
 
             // Chercher l'utilisateur par email
-            $user = $user->getOneWhere(["email" => $email]);
+            $user = $userModel->getOneWhere(["email" => $email]);
     
             // Vérifier si l'utilisateur existe et le mot de passe est correct
             if ($user && password_verify($password, $user->getPwd())){
                 // Authentification réussie
                 // Redirigez l'utilisateur vers la page d'accueil ou une autre page appropriée
+                $_SESSION['user'] = $user;
                 header('Location: /dashboard');
                 exit;
             } else {

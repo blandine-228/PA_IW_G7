@@ -5,6 +5,7 @@ abstract class SQL{
 
     private $pdo;
     private $table;
+    private static $instance = null;
 
     public function __construct()
     {
@@ -19,6 +20,14 @@ abstract class SQL{
         //$this->table = static::class;
         $classExploded = explode("\\", get_called_class());
         $this->table = "esgi_".end($classExploded);
+    }
+
+    public static function getInstance():self
+    {
+        if (self::$instance === null) {
+            self::$instance = new static();
+        }
+        return self::$instance;
     }
 
     public static function populate(Int $id): object

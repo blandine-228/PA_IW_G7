@@ -38,20 +38,42 @@ class User {
         }
     }
     
-
-    public function update($id) {
-        // Récupérer l'utilisateur
-        $user = UserModel::getOne($id);
-
+    public function update($params): void
+    {
+        $id = $params['id'];  // Récupère l'ID de l'utilisateur à partir des paramètres de l'URL
+    
+        $userModel = new UserModel();
+        $user = $userModel->getOneWhere(["id"=> $id ]);  // Obtient l'utilisateur par son ID
+        //var_dump($user);
+        if (!$user) {
+            throw new \Exception('User not found');
+        }
+    
         $form = new UpdateUserForm();
-        $view = new View("User/update", "back");
-        $view->assign("form", $form->getConfig());
+    
+        $view = new View("User/update", "back"); // Déplacez cette ligne ici
+        $view->assign("form", $form->getConfig($user)); // Modifiez cette ligne pour passer $user
         $view->assign("formErrors", $form->errors);
-        // Form valid and submitted?
-        if($form->isSubmited() && $form->isValid()){
-            // Mettre à jour l'utilisateur...
+    
+        if($form->isSubmitted() && $form->isValid()){
+            $user->setFirstname($_POST['firstname']);
+            $user->setLastname($_POST['lastname']);
+            $user->setEmail($_POST['email']);
+    
+            // Seulement mettre à jour le mot de passe s'il est fourni
+            if (!empty($_POST['password'])) {
+                $user->setPwd(password_hash($_POST['password'], PASSWORD_BCRYPT));
+            }
+    
+            $user->setRole($_POST['role']);
+            $user->save();
         }
     }
+    
+
+
+
+    
 
     public function delete($id) {
         // Récupérer l'utilisateur
