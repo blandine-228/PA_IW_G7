@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Super site</title>
     <meta name="description" content="ceci est un super site">
+    <link href="../public/DataTables/datatables.min.css" rel="stylesheet"/>
+    <script src="../public/DataTables/datatables.min.js"></script>
+    <script src="../public/js/jquery-3.5.1.min.js"></script>
+ 
+<script src="DataTables/datatables.min.js"></script>
 </head>
 <body>
     <h1>Template Back</h1>

@@ -77,4 +77,4 @@ if(!method_exists($objController, $action)){
     die("L'action ".$action." n'existe pas");
 }
 
-$objController->$action();
+$objController->$action($_GET);

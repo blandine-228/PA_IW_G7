@@ -6,7 +6,7 @@ class Validator
 {
     private array $data = [];
     public array $errors = [];
-    public function isSubmited(): bool
+    public function isSubmitted(): bool
     {
         $this->data = ($this->method == "POST")?$_POST:$_GET;
         if(isset($this->data["submit"])){
@@ -18,19 +18,19 @@ class Validator
     {
         //La bonne method ?
         if($_SERVER["REQUEST_METHOD"] != $this->method){
-            die("Tentative de Hack");
+            die("Tentative de Hack1");
         }
         //Le nb de inputs
         if(count($this->config["inputs"])+1 != count($this->data)){
-            die("Tentative de Hack");
+            die("Tentative de Hack2");
         }
 
         foreach ($this->config["inputs"] as $name=>$configInput){
             if(!isset($this->data[$name])){
-                die("Tentative de Hack");
+                die("Tentative de Hack3");
             }
             if(isset($configInput["required"]) && self::isEmpty($this->data[$name])){
-                die("Tentative de Hack");
+                die("Tentative de Hack4");
             }
             if(isset($configInput["min"]) && !self::isMinLength($this->data[$name], $configInput["min"])){
                 $this->errors[]=$configInput["error"];

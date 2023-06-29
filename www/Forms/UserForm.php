@@ -68,9 +68,4 @@ class UserForm extends Validator
         return $this->config;
     }
 
-    //permet de déterminer si le formulaire a été soumis ou non
-    public function isSubmitted(): bool
-    {
-        return ($_SERVER['REQUEST_METHOD'] === 'POST');
-    }
 }

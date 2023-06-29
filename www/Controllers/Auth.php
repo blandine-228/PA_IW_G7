@@ -26,7 +26,7 @@ class Auth
         $view->assign("formErrors", $form->errors);
     
         // Formulaire soumis et valide
-        if ($form->isSubmited() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $email = $_POST['email'];
             $password = $_POST['password'];
     
@@ -73,7 +73,7 @@ class Auth
         $view->assign("form", $form->getConfig());
 
         //Form validé ? et correct ?
-        if($form->isSubmited() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()){
             $user = new User();
             $user->setFirstname($_POST['firstname']);
             $user->setLastname($_POST['lastname']);
