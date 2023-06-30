@@ -8,7 +8,7 @@ class Validator
 
     public array $errors = [];
 
-    public function isSubmited(): bool
+    public function isSubmitted(): bool
     {
         $this->data = ($this->method == "POST")?$_POST:$_GET;
         if(isset($this->data["submit"])){
