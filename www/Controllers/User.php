@@ -20,8 +20,7 @@ class User {
         $view = new View("User/read", "back");
         $view->assign("table", $table->getConfig($allUsers));
 
-       
-       
+         
     }
 
     public function create(): void

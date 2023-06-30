@@ -57,6 +57,15 @@ user_delete:
     controller: User
     action: delete
 
+
+article_read:
+    controller: Article
+    action: read
+    
+article_create:
+    controller: Article
+    action: create
+
 # STEP 1 : ajotuer la nouvelle route
 # STEP 2 : créer la fonction dans le controller désigné dans la route
 # STEP 1 : créer un ficher X.form.php dans lequel tu décris les configs
