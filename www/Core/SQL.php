@@ -53,14 +53,14 @@ abstract class SQL{
     }
     
     public function getAll(): array
-{
-    $queryPrepared = $this->pdo->prepare("SELECT * FROM ".$this->table);
-    $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
-    $queryPrepared->execute();
-    return $queryPrepared->fetchAll();
-}
+    {
+        $queryPrepared = $this->pdo->prepare("SELECT * FROM ".$this->table);
+        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+        $queryPrepared->execute();
+        return $queryPrepared->fetchAll();
+    }
 
-
+    
 
     public function save(): void
     {
@@ -88,11 +88,24 @@ abstract class SQL{
 
     
 
-    public function delete(): void
+public function delete(): void
 {
     $queryPrepared = $this->pdo->prepare("DELETE FROM ".$this->table." WHERE id=:id");
     $queryPrepared->execute(['id' => $this->getId()]);
 }
+
+
+//article
+public function getAllArticle()
+{
+    $queryPrepared = $this->pdo->prepare("SELECT a.*, u.firstname 
+    FROM esgi_article AS a 
+    LEFT JOIN esgi_user AS u ON a.author = u.id");
+    $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+    $queryPrepared->execute();
+    return $queryPrepared->fetchAll();
+}
+
 
 
 
