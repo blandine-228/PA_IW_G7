@@ -5,8 +5,10 @@ namespace App\Core;
 class Validator
 {
     private array $data = [];
+
     public array $errors = [];
-    public function isSubmitted(): bool
+
+    public function isSubmited(): bool
     {
         $this->data = ($this->method == "POST")?$_POST:$_GET;
         if(isset($this->data["submit"])){
@@ -14,6 +16,7 @@ class Validator
         }
         return false;
     }
+    
     public function isValid(): bool
     {
         //La bonne method ?
