@@ -66,6 +66,14 @@ article_create:
     controller: Article
     action: create
 
+article_update:
+    controller: Article
+    action: update
+
+article_delete:
+    controller: Article
+    action: delete
+
 # STEP 1 : ajotuer la nouvelle route
 # STEP 2 : créer la fonction dans le controller désigné dans la route
 # STEP 1 : créer un ficher X.form.php dans lequel tu décris les configs

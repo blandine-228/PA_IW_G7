@@ -6,6 +6,7 @@ use App\datatable\articleTable;
 use App\Forms\CreateArticleForm;
 use App\Forms\UpdateArticleForm;
 use App\Forms\DeleteArticleForm;
+
 use App\Models\Article as ArticleModel;
 use App\Models\User;
 use App\Forms\ArticleForm;
@@ -42,11 +43,33 @@ class Article{
             //var_dump($_SESSION);
             //$article->setFirstname($_SESSION['firstname']);
             $article->save();
+
+
+            header('Location: /article_read');
         }
     }
-    
-        
+
+    //delete article
+    public function delete($params): void
+{
+    if (!isset($params['id'])) {
+        throw new \Exception('Article ID not provided');
     }
+
+    $id = $params['id'];
+    $article = ArticleModel::getInstance();
+    $article = $article->getOneWhere(["id" => $id]);
+
+    if (!$article) {
+        throw new \Exception('Article not found');
+    }
+
+    $article->delete();
+
+    header('Location: /article_read');
+}
+
+}
     
 
     
