@@ -86,5 +86,15 @@ abstract class SQL{
 
     }
 
+    
+
+    public function delete(): void
+{
+    $queryPrepared = $this->pdo->prepare("DELETE FROM ".$this->table." WHERE id=:id");
+    $queryPrepared->execute(['id' => $this->getId()]);
+}
+
+
+
 
 }
