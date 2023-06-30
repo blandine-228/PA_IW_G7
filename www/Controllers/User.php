@@ -74,22 +74,24 @@ class User {
     }
     
 
-
+    public function delete($params): void
+    {
+        $id = $params['id'];  // Récupère l'ID de l'utilisateur à partir des paramètres de l'URL
+    
+        $user =  UserModel::getInstance();
+        $user = $user->getOneWhere(["id"=> $id ]);  // Obtient l'utilisateur par son ID
+    
+        if (!$user) {
+            throw new \Exception('User not found');
+        }
+    
+        $user->delete();
+    
+        // Redirige vers une autre page, par exemple, la liste des utilisateurs
+        header('Location: /user_read');
+    }
+    
 
     
 
-    public function delete($id) {
-        // Récupérer l'utilisateur
-        $user = UserModel::getOne($id);
-
-        $form = new DeleteUserForm();
-        $view = new View("User/delete", "back");
-        $view->assign("form", $form->getConfig());
-        $view->assign("formErrors", $form->errors);
-
-        // Form valid and submitted?
-        if($form->isSubmited() && $form->isValid()){
-            // Supprimer l'utilisateur...
-        }
-    }
 }

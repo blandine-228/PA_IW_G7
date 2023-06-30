@@ -41,7 +41,7 @@ class userTable
             "data" => $this->users,
             "actions" => [
                 "update" => "/user_update?id=",
-                //"delete" => "delete",
+                "delete" => "/user_delete?id=",
             ],
               
         ];
