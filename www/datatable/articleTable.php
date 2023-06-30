@@ -30,13 +30,15 @@ class articleTable
                 
                 "title" => "Title",
                 "content" => "Content",
-                "user_id" => "User_id",
+                //"user_id" => "User_id",
+                "author" => "Author",
                 "Created_at" => "Date Creation",
             ],
             "body" =>[
                 "title" => "Title",
                 "content" => "Content",
-                "user_id" => "User_id",
+                //"user_id" => "User_id",
+                "author" => "Author",
                 "Created_at" => "Created_at",
             ],
             "data" => $this->articles,

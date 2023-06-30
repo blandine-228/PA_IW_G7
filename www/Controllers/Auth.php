@@ -40,7 +40,9 @@ class Auth
             if ($user && password_verify($password, $user->getPwd())){
                 // Authentification réussie
                 // Redirigez l'utilisateur vers la page d'accueil ou une autre page appropriée
-                header('Location: /dashboard');
+                $_SESSION['user_id'] = $user->getId();
+                $_SESSION['firstname'] = $user->getFirstname();
+                header('location: /dashboard');
                 exit;
             } else {
                 // Authentification échouée

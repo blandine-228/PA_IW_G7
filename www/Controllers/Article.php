@@ -37,8 +37,10 @@ class Article{
             $article = new ArticleModel();
             $article->setTitle($_POST['title']);
             $article->setContent($_POST['content']);
-            $article->setUser_id($_POST['user_id']);
-            $article->setCreated_at($_POST['created_at']);
+          
+            $article->setAuthor($_SESSION['user_id']);
+            //var_dump($_SESSION);
+            //$article->setFirstname($_SESSION['firstname']);
             $article->save();
         }
     }

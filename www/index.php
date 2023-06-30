@@ -9,6 +9,8 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';   
 require 'PHPMailer/src/Exception.php';   
 
+session_start();
+//var_dump($_SESSION);
 spl_autoload_register(function ($class) {
 
     //$class = App\Core\View

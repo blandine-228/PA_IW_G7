@@ -9,6 +9,7 @@ class Article extends SQL{
     protected String $title;
     protected String $content;
     protected Int $user_id;
+    protected ?Int $author;   
     protected ?String $created_at;
     protected ?String $updated_at;
 
@@ -70,22 +71,27 @@ class Article extends SQL{
         $this->content = trim($content);
     }
 
-    /**
-     * Get the value of user_id
-     * @return Int
-     */ 
-    public function getUser_id(): int
-    {
-        return $this->user_id;
-    }
+   
     
     /**
      * Set the value of user_id
-     * @param Int $user_id
+     * @
+     * Get the value of author
+     * @return Int
      */
-    public function setUser_id(int $user_id): void
+    public function getAuthor(): Int
     {
-        $this->user_id = $user_id;
+        return $this->author;
+    }
+    
+    /**
+     * Set the value of author
+     * @param Int $author
+     */
+
+    public function setAuthor(?Int $author): void
+    {
+        $this->author = $author;
     }
 
     /**
