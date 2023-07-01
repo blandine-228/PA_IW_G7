@@ -49,6 +49,38 @@ class Article{
         }
     }
 
+    //update article
+    public function update($params): void
+    {
+        $id = $params['id'];  // Récupère l'ID de l'utilisateur à partir des paramètres de l'URL
+    
+        $articleModel = new ArticleModel();
+        $article = $articleModel->getOneWhere(["id"=> $id ]);  // Obtient l'utilisateur par son ID
+        //var_dump($article);
+        if (!$article) {
+            throw new \Exception('Article not found');
+        }
+    
+        $form = new UpdateArticleForm();
+    
+        $view = new View("Article/update", "back"); // Déplacez cette ligne ici
+        $view->assign("form", $form->getConfig($article)); // Modifiez cette ligne pour passer $article
+        $view->assign("formErrors", $form->errors);
+    
+        if($form->isSubmitted() && $form->isValid()){
+            $article->setTitle($_POST['title']);
+            $article->setContent($_POST['content']);
+            $article->save();
+            header('Location: /article_read');
+        }
+    }
+
+
+
+
+
+
+
     //delete article
     public function delete($params): void
 {
