@@ -78,6 +78,9 @@ pages_read:
     controller: Pages
     action: read
     
+pages_create:
+    controller: Pages
+    action: create
 
 # STEP 1 : ajotuer la nouvelle route
 # STEP 2 : créer la fonction dans le controller désigné dans la route

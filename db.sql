@@ -50,3 +50,17 @@ INSERT INTO "esgi_article" ("id", "title", "content", "created_at", "updated_at"
 (9,	'Uu',	'uu',	'2023-06-30 12:40:12.036204',	NULL,	5);
 
 -- 2023-06-30 12:47:39.586761+00
+
+
+DROP TABLE IF EXISTS "esgi_pages";
+DROP SEQUENCE IF EXISTS pages_id_seq;
+CREATE SEQUENCE pages_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1;
+
+CREATE TABLE "public"."esgi_pages" (
+    "id" integer DEFAULT nextval('pages_id_seq') NOT NULL,
+    "title" character varying(255) NOT NULL,
+    "content" text NOT NULL,
+    "created_at" timestamp DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" timestamp,
+    CONSTRAINT "pages_pkey" PRIMARY KEY ("id")
+) WITH (oids = false);
