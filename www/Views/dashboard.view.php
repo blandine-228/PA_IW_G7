@@ -11,6 +11,7 @@
         
         <li><a href="/user_read">Gérer les utilisateurs</a></li>
         <li><a href="/article_read">Gérer  les articles</a></li>
+        <li><a href="/pages_read">Gérer  les pages</a></li>
     </ul>
 
     <a href="/logout">Déconnexion</a> <!-- Lien de déconnexion -->
