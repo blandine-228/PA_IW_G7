@@ -71,7 +71,7 @@ class Article{
             $article->setTitle($_POST['title']);
             $article->setContent($_POST['content']);
             $article->save();
-            //header('Location: /article_read');
+            header('Location: /article_read');
         }
     }
 
