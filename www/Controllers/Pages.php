@@ -36,9 +36,9 @@ class Pages {
             $pages->setTitle($_POST['title']);
             $pages->setContent($_POST['content']);
             $pages->save();
+            header('Location: /pages_read');
         }
 
-        header('Location: /pages_read');
     }
 
         public function update($params): void
