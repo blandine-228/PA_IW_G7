@@ -74,6 +74,11 @@ article_delete:
     controller: Article
     action: delete
 
+pages_read:
+    controller: Pages
+    action: read
+    
+
 # STEP 1 : ajotuer la nouvelle route
 # STEP 2 : créer la fonction dans le controller désigné dans la route
 # STEP 1 : créer un ficher X.form.php dans lequel tu décris les configs
