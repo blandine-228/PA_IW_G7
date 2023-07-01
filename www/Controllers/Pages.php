@@ -4,6 +4,9 @@ namespace App\Controllers;
 use App\Core\View;
 use App\datatable\pagesTable;
 use App\Forms\PagesForm;
+use App\Forms\CreatePagesForm;
+use App\Forms\UpdatePagesForm;
+use App\Forms\DeletePagesForm;
 use App\Models\Pages as PagesModel;
 
 class Pages {
@@ -35,4 +38,29 @@ class Pages {
             $pages->save();
         }
     }
+
+        public function update($params): void
+        {
+            $id = $params['id'];  // Récupère l'ID de l'utilisateur à partir des paramètres de l'URL
+        
+            $pagesModel = new PagesModel();
+            $pages = $pagesModel->getOneWhere(["id"=> $id ]);  
+            //var_dump($pages);
+            if (!$pages) {
+                throw new \Exception('Page not found');
+            }
+        
+            $form = new UpdatePagesForm();
+        
+            $view = new View("Pages/update", "back");
+            $view->assign("form", $form->getConfig($pages));
+            $view->assign("formErrors", $form->errors);
+        
+            if($form->isSubmitted() && $form->isValid()){
+                $pages->setTitle($_POST['title']);
+                $pages->setContent($_POST['content']);
+                $pages->save();
+                header('Location: /pages_read');
+            }
+        }
 }
