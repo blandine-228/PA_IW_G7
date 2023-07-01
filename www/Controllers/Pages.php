@@ -37,6 +37,8 @@ class Pages {
             $pages->setContent($_POST['content']);
             $pages->save();
         }
+
+        header('Location: /pages_read');
     }
 
         public function update($params): void
@@ -45,7 +47,6 @@ class Pages {
         
             $pagesModel = new PagesModel();
             $pages = $pagesModel->getOneWhere(["id"=> $id ]);  
-            //var_dump($pages);
             if (!$pages) {
                 throw new \Exception('Page not found');
             }
@@ -63,4 +64,21 @@ class Pages {
                 header('Location: /pages_read');
             }
         }
+
+
+        public function delete($params): void
+        {
+            $id = $params['id'];
+        
+            $pages =  PagesModel::getInstance();
+            $pages = $pages->getOneWhere(["id"=> $id ]);  
+            if (!$pages) {
+                throw new \Exception('Page not found');
+            }
+        
+            $pages->delete();
+        
+            header('Location: /pages_read');
+        }
+        
 }
