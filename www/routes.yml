@@ -89,6 +89,14 @@ pages_update:
 pages_delete:
     controller: Pages
     action: delete
+
+comments_read:
+    controller: Comments
+    action: read
+        
+comments_create:
+    controller: Comments
+    action: create
 # STEP 1 : ajotuer la nouvelle route
 # STEP 2 : créer la fonction dans le controller désigné dans la route
 # STEP 1 : créer un ficher X.form.php dans lequel tu décris les configs
