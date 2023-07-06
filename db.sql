@@ -70,7 +70,7 @@ DROP SEQUENCE IF EXISTS comments_id_seq;
 CREATE SEQUENCE comments_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1;
 
 
-CREATE TABLE esgi_commentaires (
+CREATE TABLE esgi_comments (
     id SERIAL PRIMARY KEY,
     contenu TEXT NOT NULL,
     auteur VARCHAR(255) NOT NULL,
