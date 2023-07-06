@@ -64,3 +64,16 @@ CREATE TABLE "public"."esgi_pages" (
     "updated_at" timestamp,
     CONSTRAINT "pages_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
+
+DROP TABLE IF EXISTS "esgi_comments";
+DROP SEQUENCE IF EXISTS comments_id_seq;
+CREATE SEQUENCE comments_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1;
+
+
+CREATE TABLE esgi_comments (
+    id SERIAL PRIMARY KEY,
+    contenu TEXT NOT NULL,
+    auteur VARCHAR(255) NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    statut VARCHAR(20) DEFAULT 'en_attente' CHECK (statut IN ('approuvé', 'en_attente', 'signalé'))
+);
