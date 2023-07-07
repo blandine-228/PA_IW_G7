@@ -70,6 +70,7 @@ class User {
     
             $user->setRole($_POST['role']);
             $user->save();
+            header('Location: /user_read');
         }
     }
     
