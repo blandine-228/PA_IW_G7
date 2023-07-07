@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\View;
-use App\Models\Article as ArticleModel;
+use App\Models\Article;
 //use App\datatable\articleTable;
 use App\datatable\articleTableFront;
 
@@ -30,17 +30,13 @@ class Main
 
     public function home()
     {
-         // Récupérer tous les articles depuis la base de données
-         $article = ArticleModel::getInstance();
-         $allArticles = $article->getAll();
-         // Afficher les articles dans une vue appropriée
-         $table = new articleTableFront($allArticles);
- 
-        // $view = new View('Article/read', 'back');
-       
-         $view = new View("Main/home", "front");
-         $view->assign('table', $table->getConfig($allArticles));
-         //$view->render()
+        $articleModel = new Article();
+    $articles = $articleModel->getAll();
+    
+    // Passer les articles à la vue
+    $view = new View("Main/home", "front");
+    $view->assign("articles", $articles);
+        
     }
 
 }

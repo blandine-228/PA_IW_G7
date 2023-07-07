@@ -75,12 +75,6 @@ class Article{
         }
     }
 
-
-
-
-
-
-
     //delete article
     public function delete($params): void
 {
@@ -89,7 +83,7 @@ class Article{
     }
 
     $id = $params['id'];
-    $article = ArticleModel::getInstance();
+    $article = new ArticleModel();
     $article = $article->getOneWhere(["id" => $id]);
 
     if (!$article) {
@@ -100,6 +94,35 @@ class Article{
 
     header('Location: /article_read');
 }
+
+//read on article
+// ...
+
+//read one article
+public function show($params)
+{
+    $id = $params['id'];
+    if (!isset($params['id'])) {
+        throw new \Exception('Article ID not provided');
+    }
+
+    
+
+    $articleModel = ArticleModel::getInstance();
+    $article = $articleModel->getOneWhere(["id" => $id]);
+
+    if (!$article) {
+        throw new \Exception('Article not found');
+    }
+
+    $view = new View("Article/show", "front");
+    $view->assign("article", $article);
+    $view->render();
+}
+
+// ...
+
+
 
 }
     

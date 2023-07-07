@@ -19,7 +19,7 @@ class Auth
 {
     public function login(): void
     {
-        echo "Page de connexion";
+        //echo "Page de connexion";
         $form = new Login();
         $view = new View("Auth/login", "front");
         $view->assign("form", $form->getConfig());
