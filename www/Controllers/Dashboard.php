@@ -16,7 +16,7 @@ class Dashboard
 
         // Vérifie si l'utilisateur est connecté
         // Pour cet exemple, je suppose que vous stockez l'ID de l'utilisateur dans la session lorsqu'il se connecte
-        var_dump($_SESSION);
+        
         if (!isset($_SESSION['user_id'])) {
             // L'utilisateur n'est pas connecté, le rediriger vers la page de connexion
             header('Location: /login');
