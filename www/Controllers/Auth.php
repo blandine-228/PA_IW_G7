@@ -105,6 +105,14 @@ class Auth
 
     public function logout(): void
     {
+        // Démarrer la session si elle n'a pas déjà été démarrée
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    // Détruire la session existante
+    session_destroy();
+
         echo "Page de déconnexion";
         header('Location: /login');
         exit;
