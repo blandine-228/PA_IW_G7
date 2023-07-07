@@ -1,21 +1,32 @@
 <?php
 namespace App\Core;
 
-class View {
+use App\Views\ViewInterface;
 
+class View implements ViewInterface{
     private String $view;
     private String $template;
     private $data = [];
+    private String $title = "";
 
     public function __construct(String $view, String $template = "back") {
         $this->setView($view);
         $this->setTemplate($template);
-
     }
 
     public function assign(String $key, $value): void
     {
         $this->data[$key] = $value;
+    }
+
+    public function getTitle(): String
+    {
+        return $this->title;
+    }
+
+    public function setTitle($title): void
+    {
+        $this->title = $title;
     }
 
     /**
@@ -34,7 +45,7 @@ class View {
      */
     public function setTemplate(string $template): void
     {
-        $this->template = WWW_PATH . "Views/".$template.".tpl.php";
+        $this->template = WWW_PATH . "Views/Templates/".$template.".tpl.php";
         if(!file_exists($this->template)){
             die("Le template ".$this->template." n'existe pas");
         }

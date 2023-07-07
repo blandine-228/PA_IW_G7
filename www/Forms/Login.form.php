@@ -21,22 +21,24 @@ class Login extends Validator
                 "submit" => "Se connecter",
                 "reset" => "Réinitialiser"
             ],
-            "inputs" => [
+            "formFields" => [
                 "email" => [
                     "id" => "login-form-email",
-                    "class" => "form-input",
-                    "placeholder" => "Votre email",
+                    "class" => "input input-bordered input-info w-full max-w-xs",
+                    "placeholder" => "Courriel",
                     "type" => "email",
                     "error" => "Votre email est incorrect",
-                    "required" => true
+                    "required" => true,
+                    "labelClass" => "uppercase bold"
                 ],
                 "password" => [
                     "id" => "login-form-password",
-                    "class" => "form-input",
-                    "placeholder" => "Votre mot de passe",
+                    "class" => "input input-bordered input-info w-full max-w-xs",
+                    "placeholder" => "Mot de passe",
                     "type" => "password",
                     "error" => "Votre mot de passe est incorrect",
-                    "required" => true
+                    "required" => true,
+                    "labelClass" => "uppercase bold"
                 ]
             ]
         ];

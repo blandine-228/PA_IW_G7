@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\View;
-use App\Models\DashboardModel;
+use App\Models\Dashboard as DashC;
 use App\Core\SQL;
 use PDO;
 
@@ -26,7 +26,7 @@ class Dashboard
 
     public function index() {
         $view = new View('dashboard', 'back');
-        $dashboardModel = new DashboardModel($this->pdo);
+        $dashboardModel = new DashC($this->pdo);
         $data = $dashboardModel->getAllData();
 
         $chartData = [];
@@ -38,18 +38,4 @@ class Dashboard
             ];
         }
     }
- /*   
-    public function index(): void
-    {
-         $view = new View('dashboard', 'back');
-
-        // Assigner les données récupérées à la vue, par exemple :
-        //$view->assign('articles', $articles);
-        //$view->assign('statistics', $statistics);
-
-        // Afficher la vue
-        $view->render();
-    }
-
-    */
 }

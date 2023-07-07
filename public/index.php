@@ -2,8 +2,10 @@
 
 namespace App;
 
-//require "Core/View.php";
+//Set the main www path
 define("WWW_PATH", getenv("WWW_PATH"));
+//Set images path
+define("IMAGES_PATH", getenv("IMAGES_PATH"));
 //Set database consts
 define("DB_TYPE", getenv("DB_TYPE"));
 define("DB_HOST", getenv("DB_HOST"));
@@ -20,7 +22,7 @@ spl_autoload_register(function ($class) {
     //$class = Core/View
     $classForm = $class.".form.php";
     $class = $class.".php";
-    //$class = Core/View.php
+    //$class = Core/ViewInterface.php
     if(file_exists(WWW_PATH .$class)){
         include WWW_PATH . $class;
     }else if(file_exists(WWW_PATH . $classForm)){

@@ -12,7 +12,7 @@ class Main
         $view = new View("Main/home", "front");
         $view->assign("pseudo", $pseudo);
         $view->assign("age", 30);
-        $view->assign("titleseo", "supernouvellepage");
+        $view->assign("title", "Bienvenue sur le site");
     }
 
     public function contact(): void
@@ -23,6 +23,12 @@ class Main
     public function aboutUs(): void
     {
         echo "Page à propos";
+    }
+
+    public function fourOFour()
+    {
+        $view = new View("Main/404", "front");
+        $view->assign("title" , "404 - Page introuvable");
     }
 
 }

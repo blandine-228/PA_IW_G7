@@ -1,9 +1,8 @@
 <?php
-namespace APP\Models;
+namespace App\Models;
 use PDO;
 
-
-class DashboardModel {
+class Dashboard {
 
     private $db;
 
@@ -18,12 +17,8 @@ class DashboardModel {
     }
 
     public function getData() {
-        //A continuer demain matin 
-        // Code pour récupérer les données du tableau de bord depuis la base de données ou toute autre source
         $data = array(/* Nos données récupérées */);
         return $data;
-
-        
     }
 }
 ?>

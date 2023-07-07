@@ -1,5 +1,9 @@
 {
   "scripts": {
-    "watch": "sass --no-charset --watch public/scss/styles.scss public/styles.css"
+    "watch": "npx tailwindcss -i ./assets/scss/styles.scss -o ./public/styles.css --watch"
+  },
+  "devDependencies": {
+    "daisyui": "^3.1.7",
+    "tailwindcss": "^3.3.2"
   }
 }
