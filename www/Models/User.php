@@ -13,7 +13,7 @@ class User extends SQL
     protected Int $status = 0;
     private ?String $date_inserted;
     private ?String $date_updated;
-    protected String $role = "user"; // Nouvel attribut pour le rôle
+    protected ?String $role = "user"; // Nouvel attribut pour le rôle
     protected ?String $verificationToken;
 
     public function __construct(){

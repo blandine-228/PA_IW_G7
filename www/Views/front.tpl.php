@@ -26,12 +26,11 @@
             <li class="active"><a href="http://www.phpzag.com">About</a></li>
             <li class="active"><a href="http://www.phpzag.com">Contact</a></li> 
           </ul>
+
           <ul class="nav navbar-nav navbar-right">
-                    <!--<?php //if ($_SESSION['loggedIn']): ?>
-                        <li><a href="/logout">Logout</a></li>
-                    <?php //else: ?>
-                        <li><a href="/login">Login</a></li>
-                    <?php //endif; ?>-->
+                    <!--<?php if (isset($_SESSION['user_id']) && $_SESSION['role'] === 'admin'): ?>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                    <?php endif; ?>-->
                     <li><a href="/login">Login</a></li>
                     <li><a href="/s-inscrire">Register</a></li>
                     <li><a href="/logout">Logout</a></li>

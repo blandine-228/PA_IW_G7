@@ -106,6 +106,15 @@ public function getAllArticle()
     return $queryPrepared->fetchAll();
 }
 
+public function Count(){
+    $queryPrepared = $this->pdo->prepare("SELECT COUNT(*) FROM ".$this->table);
+    $queryPrepared->execute();
+    return $queryPrepared->fetchColumn();
+}
+
+
+
+
 
 
 

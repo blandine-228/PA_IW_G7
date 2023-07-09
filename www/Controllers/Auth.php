@@ -42,13 +42,17 @@ class Auth
                 // Redirigez l'utilisateur vers la page d'accueil ou une autre page appropriée
                 $_SESSION['user_id'] = $user->getId();
                 $_SESSION['firstname'] = $user->getFirstname();
-                header('location: /dashboard');
+                $_SESSION['role'] = $user->getRole();
+
+                
+                header('location: /');
                 exit;
             } else {
                 // Authentification échouée
                 // Ajoutez un message d'erreur à afficher dans le formulaire de connexion
                echo "Erreur d'authentification";
             }
+            
 
         }
     
@@ -180,6 +184,11 @@ class Auth
         header('Location: /login');
         exit;
     }
+
+
+
+
+    
     
  
 
