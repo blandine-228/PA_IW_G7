@@ -34,7 +34,7 @@
   </ul>
 </nav>
 
-<div class="comments-bar">
-  <h3>Comments</h3>
+<div class="comment-bar">
+  <h3>comment</h3>
   <!-- Ajoutez ici la structure HTML pour la barre de commentaires -->
 </div>

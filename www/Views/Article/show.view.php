@@ -9,6 +9,9 @@
 
 <p>Created at: <?= $article->getCreated_at(); ?></p>
 
+<button>
+    <a href="/comment_create">Create</a>
+</button>
 
 
 

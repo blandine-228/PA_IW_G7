@@ -94,12 +94,12 @@ pages_delete:
     controller: Pages
     action: delete
 
-comments_read:
-    controller: Comments
+comment_read:
+    controller: Comment
     action: read
         
-comments_create:
-    controller: Comments
+comment_create:
+    controller: Comment
     action: create
 
 

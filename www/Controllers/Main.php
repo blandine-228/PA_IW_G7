@@ -38,5 +38,6 @@ class Main
     $view->assign("articles", $articles);
         
     }
+    
 
 }
