@@ -11,16 +11,12 @@ class Dashboard
 {
     public function index(): void
     {
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
             // L'utilisateur n'est pas connecté, le rediriger vers la page de connexion
             header('Location: /login');
 
             exit;
         }
-
-
-
-
 
         // Nombre total d'utilisateurs
         $userModel = new User();

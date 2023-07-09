@@ -112,6 +112,13 @@ public function Count(){
     return $queryPrepared->fetchColumn();
 }
 
+public function getAllPages()
+{
+    $queryPrepared = $this->pdo->prepare("SELECT * FROM ".$this->table);
+    $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+    $queryPrepared->execute();
+    return $queryPrepared->fetchAll();
+}
 
 
 

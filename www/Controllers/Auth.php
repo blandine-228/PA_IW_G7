@@ -6,6 +6,7 @@ use App\Core\View;
 use App\Forms\Register;
 use App\Forms\Login;
 use App\Models\User;
+use App\Models\Pages;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -43,6 +44,8 @@ class Auth
                 $_SESSION['user_id'] = $user->getId();
                 $_SESSION['firstname'] = $user->getFirstname();
                 $_SESSION['role'] = $user->getRole();
+
+                
 
                 
                 header('location: /');
