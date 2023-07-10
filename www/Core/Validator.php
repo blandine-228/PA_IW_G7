@@ -19,6 +19,7 @@ class Validator
     
     public function isValid(): bool
     {
+       
         //La bonne method ?
         if($_SERVER["REQUEST_METHOD"] != $this->method){
             die("Tentative de Hack1");
