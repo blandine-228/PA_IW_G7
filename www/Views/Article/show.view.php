@@ -10,8 +10,12 @@
 <p>Created at: <?= $article->getCreated_at(); ?></p>
 
 <button>
-    <a href="/comment_create">Create</a>
+<a href="/comment_create?article_id=<?= $article->getId() ?>">Ajouter un commentaire</a>
+
+    
 </button>
+
+
 
 
 

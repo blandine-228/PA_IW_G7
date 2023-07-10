@@ -69,6 +69,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/comment_read">
+                        <i class="fas fa-comments"></i> Gérer les commentaires
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="logout">
                         <i class="fas fa-sign-out-alt"></i> Déconnexion
                     </a>
