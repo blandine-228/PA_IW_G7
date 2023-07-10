@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\View;
+use App\datatable\commentTable;
 use App\Forms\CommentForm;
 use App\Models\Comment as CommentModel;
 use App\Models\Article;
@@ -64,5 +65,19 @@ class Comment
         $view->assign("article", $article);
         $view->assign("form", $form->getConfig());
         $view->assign("formErrors", $form->errors);
+    }
+
+    public function read()
+    {
+        
+        // Récupérer tous les articles depuis la base de données
+        $article = CommentModel::getInstance();
+        $allArticles = $article->getAll();
+        // Afficher les articles dans une vue appropriée
+        $table = new commentTable($allArticles);
+
+        $view = new View('Article/read', 'back');
+        $view->assign('table', $table->getConfig($allArticles));
+        //$view->render();
     }
 }

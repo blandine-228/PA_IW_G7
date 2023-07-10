@@ -98,4 +98,6 @@ class Comment extends SQL
     {
         $this->flagged_count = $flagged_count;
     }
+
+   
 }
