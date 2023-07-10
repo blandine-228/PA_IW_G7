@@ -50,6 +50,15 @@
                 </a>
             </div>
         </div>
+
+        <div class="col-md-3">
+            <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 
+                <a href="/comment_read"><?php echo $commentCount; ?></h2>
+                    <h4>Comments</h4>
+                </a>
+            </div>
+        </div>
    
     </div>   
   

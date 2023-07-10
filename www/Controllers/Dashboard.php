@@ -6,6 +6,7 @@ use App\Core\View;
 use App\Models\User;
 use App\Models\Article;
 use App\Models\Pages;
+use App\Models\Comment;
 
 class Dashboard
 {
@@ -31,11 +32,16 @@ class Dashboard
         $pagesModel = new Pages();
         $pagesCount = $pagesModel->count();
 
+        //nombre total de commentaires
+        $commentModel = new Comment();
+        $commentCount = $commentModel->count();
+
 
         $view = new View('dashboard', 'back');
         $view->assign('userCount', $userCount);
         $view->assign('articleCount', $articleCount);
         $view->assign('pagesCount', $pagesCount);
+        $view->assign('commentCount', $commentCount);
        
         // Afficher la vue
         $view->render();
