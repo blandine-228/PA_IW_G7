@@ -27,7 +27,7 @@ dashboard:
   action: index
 
 installer:
-  controller: Installer
+  controller: Backoffice
   action: installer
 
 404:
