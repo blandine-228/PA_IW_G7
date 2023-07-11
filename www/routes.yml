@@ -107,7 +107,11 @@ comment_approve:
   controller: Comment
   action: approve
 
-
+comment_delete:
+    path: /comment/delete/{id}
+    controller: Comment
+    action: delete
+ 
 
 article_show:
     path: /article/show/{id}

@@ -116,6 +116,39 @@ class Comment
     exit;
 }
 
+public function delete()
+{
+    // Vérifiez si l'utilisateur est connecté et s'il est un administrateur
+    // Ajoutez ici le code de vérification de l'administrateur, cela dépend de la façon dont vous gérez les utilisateurs et les rôles
+
+    // Vérifiez si l'ID du commentaire est fourni
+    if (!isset($_GET['id'])) {
+        echo "ID du commentaire non fourni!";
+        return;
+    }
+
+    // Récupérez l'ID du commentaire
+    $commentId = $_GET['id'];
+
+    // Récupérez le commentaire de la base de données
+    $commentModel = new CommentModel();
+    $comment = $commentModel->getOneWhere(["id" => $commentId]);
+
+    // Vérifiez si le commentaire existe
+    if (!$comment) {
+        echo "Le commentaire n'existe pas!";
+        return;
+    }
+
+    // Supprimez le commentaire
+    $comment->delete();
+
+    // Redirigez l'utilisateur vers la page précédente ou vers la page d'administration des commentaires
+    header('Location: /comment_read');
+    exit;
+}
+
+
 
 
 }
