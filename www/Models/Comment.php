@@ -11,9 +11,10 @@ class Comment extends SQL
     protected int $user_id;
     protected string $content;
     protected string $created_at;
-    protected bool $moderated;
-    protected bool $flagged;
+    protected int $moderated = 0;
+    protected int  $flagged = 0; 
     protected int $flagged_count;
+  
 
     public function __construct(){
         parent::__construct();
@@ -69,23 +70,21 @@ class Comment extends SQL
         $this->created_at = $created_at;
     }
 
-    public function getModerated(): bool
+    public function getModerated(): int
     {
         return $this->moderated;
     }
-
-    public function setModerated(bool $moderated): void
+    
+    public function setModerated(int $moderated): void
     {
         $this->moderated = $moderated;
     }
 
-    public function getFlagged(): bool
-    {
+    public function getFlagged(): int {
         return $this->flagged;
     }
 
-    public function setFlagged(bool $flagged): void
-    {
+    public function setFlagged(int $flagged): void {
         $this->flagged = $flagged;
     }
 
@@ -98,6 +97,7 @@ class Comment extends SQL
     {
         $this->flagged_count = $flagged_count;
     }
+
 
    
 }

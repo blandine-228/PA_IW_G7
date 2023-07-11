@@ -102,6 +102,12 @@ comment_create:
     controller: Comment
     action: create
 
+comment_approve:
+  path: /comment/approve/{id}
+  controller: Comment
+  action: approve
+
+
 
 article_show:
     path: /article/show/{id}

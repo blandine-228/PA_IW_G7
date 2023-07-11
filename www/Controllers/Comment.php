@@ -80,4 +80,42 @@ class Comment
         $view->assign('table', $table->getConfig($allArticles));
         //$view->render();
     }
+    
+    public function approve()
+{
+    // Vérifiez si l'utilisateur est connecté et s'il est un administrateur
+    // Ajoutez ici le code de vérification de l'administrateur, cela dépend de la façon dont vous gérez les utilisateurs et les rôles
+
+    // Vérifiez si l'ID du commentaire est fourni
+    if (!isset($_GET['id'])) {
+        echo "ID du commentaire non fourni!";
+        return;
+    }
+
+    // Récupérez l'ID du commentaire
+    $commentId = $_GET['id'];
+
+    // Récupérez le commentaire de la base de données
+    $commentModel = new CommentModel();
+    $comment = $commentModel->getOneWhere(["id" => $commentId]);
+
+    // Vérifiez si le commentaire existe
+    if (!$comment) {
+        echo "Le commentaire n'existe pas!";
+        return;
+    }
+
+    // Approuvez le commentaire
+    $comment->setModerated(true);
+
+    // Enregistrez le commentaire
+    $comment->save();
+
+    // Redirigez l'utilisateur vers la page précédente ou vers la page d'administration des commentaires
+    header('Location: /comment_read');
+    exit;
+}
+
+
+
 }
