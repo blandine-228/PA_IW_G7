@@ -23,8 +23,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
-            <li class="active"><a href="http://www.phpzag.com">About</a></li>
-            <li class="active"><a href="http://www.phpzag.com">Contact</a></li>
+            <li class=""><a href="">About</a></li>
+            <li class=""><a href="http://www.phpzag.com">Contact</a></li>
             <?php if (isset($_SESSION['user_id']) && $_SESSION['role'] === 'admin'): ?>
                 <li><a href="/dashboard">Dashboard</a></li>
             <?php endif; ?> 

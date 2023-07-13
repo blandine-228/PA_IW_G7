@@ -1,3 +1,29 @@
+<style>
+  .form-button {
+    padding: 10px 10px;
+   height: 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    /* Ajoutez d'autres styles selon vos besoins */
+}
+
+.form-button-res {
+    padding: 10px 10px;
+   height: 30px;
+    background-color: #cc3434;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    /* Ajoutez d'autres styles selon vos besoins */
+}
+
+</style>
 <form method="<?= $config["config"]["method"] ?>"
       action="<?= $config["config"]["action"] ?>"
       enctype="<?= $config["config"]["enctype"] ?>"
@@ -18,9 +44,9 @@
       </div>
     <?php endforeach;?>
 
-    <input type="submit" name="submit" value="<?= $config["config"]["submit"] ?>">
+    <input type="submit" name="submit" value="<?= $config["config"]["submit"] ?>" class="form-button">
     <?php if (isset($config["config"]["reset"])): ?>
-     <input type="reset" value="<?= $config["config"]["reset"] ?>">
+     <input type="reset" value="<?= $config["config"]["reset"] ?>" class="form-button-res">
     <?php endif; ?>
 
 </form>
