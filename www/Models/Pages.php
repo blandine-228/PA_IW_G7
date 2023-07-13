@@ -12,6 +12,7 @@ class Pages extends SQL{
     protected String $content;  
     protected ?String $created_at;
     protected ?String $updated_at;
+    protected ?int $created_by;
     public function __construct(){
         parent::__construct();
     }
@@ -105,5 +106,25 @@ class Pages extends SQL{
     {
         $this->updated_at = $updated_at;
     }
+
+    /**
+     * Get the value of created_by
+     * @return Int
+     */
+    public function getCreated_by(): int
+    {
+        return $this->created_by;
+    }
+
+    /**
+     * Set the value of created_by
+     * @param Int $created_by
+     */
+
+    public function setCreated_by(int $created_by): void
+    {
+        $this->created_by = $created_by;
+    }
+
 
 }

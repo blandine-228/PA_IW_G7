@@ -8,6 +8,8 @@ use App\Forms\CreatePagesForm;
 use App\Forms\UpdatePagesForm;
 use App\Forms\DeletePagesForm;
 use App\Models\Pages as PagesModel;
+use App\Models\User;
+
 
 class Pages {
 
@@ -25,21 +27,32 @@ class Pages {
     }
 
     public function create(): void
-    {
-        $form = new PagesForm();
-        $view = new View("Pages/create", "back");
-        $view->assign("form", $form->getConfig());
-        $view->assign("formErrors", $form->errors);
-    
-        if($form->isSubmitted() && $form->isValid()){
-            $pages = new PagesModel();
-            $pages->setTitle($_POST['title']);
-            $pages->setContent($_POST['content']);
-            $pages->save();
-            header('Location: /pages_read');
-        }
+{
+    $form = new PagesForm();
+    $view = new View("Pages/create", "back");
+    $view->assign("form", $form->getConfig());
+    $view->assign("formErrors", $form->errors);
 
+    if($form->isSubmitted() && $form->isValid()){
+        $pages = new PagesModel();
+        $pages->setTitle($_POST['title']);
+        $pages->setContent($_POST['content']);
+        $pages->setCreated_by($_SESSION['user_id']); // Définir l'ID de l'utilisateur qui a créé la page
+        $pages->save();
+
+        
+
+        
+        header('Location: /pages_read');
+        exit;
     }
+
+    // Afficher la vue du formulaire de création
+    $view->render();
+}
+
+  
+
 
         public function update($params): void
         {
