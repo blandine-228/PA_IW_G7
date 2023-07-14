@@ -6,7 +6,6 @@ services:
      - "80:80"
     environment:
       WWW_PATH: ../www/
-      IMAGES_PATH:
       DB_TYPE: pgsql
       DB_HOST: database
       DB_NAME: pa-iw

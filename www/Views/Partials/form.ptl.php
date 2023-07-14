@@ -10,7 +10,7 @@
       class="<?= $config["config"]["class"] ?>">
 
     <?php foreach ($config["formFields"] as $name=>$configInput): ?>
-        <div class="relative w-full mb-3">
+        <div class="relative w-5/6 mb-3 flex flex-col justify-center align-middle">
             <label
                 for="<?= $name ?>"
                 class="<?= $configInput["labelClass"]?>"
@@ -19,7 +19,6 @@
             </label>
             <input
                 name="<?= $name ?>"
-                placeholder="<?= $configInput["placeholder"] ?>"
                 class="<?= $configInput["class"] ?>"
                 id="<?= $configInput["placeholder"] ?>"
                 type="<?= $configInput["type"] ?>"

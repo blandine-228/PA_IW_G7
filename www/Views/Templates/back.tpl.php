@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/styles.css">
     <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
-<body class="grid grid-cols-12 h-screen">
+<body class="grid grid-cols-12 h-screen bg-gray-50">
     <!-- inclure la vue -->
     <?php include $this->view;?>
 </body>

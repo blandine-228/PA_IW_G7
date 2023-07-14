@@ -21,8 +21,8 @@ class Register extends Validator
                 "formFields"=>[
                     "firstname"=>[
                         "id"=>"register-form-firstname",
-                        "class"=>"form-input",
-                        "labelClass" => "",
+                        "class"=>"input input-bordered input-info w-full max-w-xs",
+                        "labelClass" => "uppercase bold",
                         "placeholder"=>"Votre prénom",
                         "type"=>"text",
                         "error"=>"Votre prénom doit faire entre 2 et 60 caractères",
@@ -32,8 +32,8 @@ class Register extends Validator
                     ],
                     "lastname"=>[
                         "id"=>"register-form-lastname",
-                        "class"=>"form-input",
-                        "labelClass" => "",
+                        "class"=>"input input-bordered input-info w-full max-w-xs",
+                        "labelClass" => "uppercase bold",
                         "placeholder"=>"Votre nom",
                         "type"=>"text",
                         "error"=>"Votre nom doit faire entre 2 et 120 caractères",
@@ -43,8 +43,8 @@ class Register extends Validator
                     ],
                     "email"=>[
                         "id"=>"register-form-email",
-                        "class"=>"form-input",
-                        "labelClass" => "",
+                        "class"=>"input input-bordered input-info w-full max-w-xs",
+                        "labelClass" => "uppercase bold",
                         "placeholder"=>"Votre email",
                         "type"=>"email",
                         "error"=>"Votre email est incorrect",
@@ -52,8 +52,8 @@ class Register extends Validator
                     ],
                     "pwd"=>[
                         "id"=>"register-form-pwd",
-                        "class"=>"form-input",
-                        "labelClass" => "",
+                        "class"=>"input input-bordered input-info w-full max-w-xs",
+                        "labelClass" => "uppercase bold",
                         "placeholder"=>"Votre mot de passe",
                         "type"=>"password",
                         "error"=>"Votre mot de passe doit faire au minimum 8 caractères avec minuscules, majuscules et chiffres",
@@ -61,8 +61,8 @@ class Register extends Validator
                     ],
                     "pwdConfirm"=>[
                         "id"=>"register-form-pwd-confirm",
-                        "class"=>"form-input",
-                        "labelClass" => "",
+                        "class"=>"input input-bordered input-info w-full max-w-xs",
+                        "labelClass" => "uppercase bold",
                         "placeholder"=>"Confirmation",
                         "type"=>"password",
                         "error"=>"Votre mot de passe de confirmation ne correspond pas",
