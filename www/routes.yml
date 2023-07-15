@@ -111,6 +111,11 @@ comment_delete:
     path: /comment/delete/{id}
     controller: Comment
     action: delete
+
+comment_show:
+    path: /article/show/{id}
+    controller: Comment
+    action: show    
  
 
 article_show:

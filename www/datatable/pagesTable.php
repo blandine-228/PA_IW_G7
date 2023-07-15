@@ -29,10 +29,12 @@ class pagesTable
                 
                 "Title" => "Title",
                 "Content" => "Content",
+                "created_by" => "Created by",
             ],
             "body" =>[
                 "title" => "title",
                 "content" => "content",
+                "created_by" => "created_by",
             ],
             "data" => $this->pages,
             "actions" => [

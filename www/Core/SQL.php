@@ -121,8 +121,17 @@ public function getAllPages()
 }
 
 
-
-
+public function getAllWhere(array $where): array
+{
+    $sqlWhere = [];
+    foreach ($where as $column=>$value) {
+        $sqlWhere[] = $column."=:".$column;
+    }
+    $queryPrepared = $this->pdo->prepare("SELECT * FROM ".$this->table." WHERE ".implode(" AND ", $sqlWhere));
+    $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+    $queryPrepared->execute($where);
+    return $queryPrepared->fetchAll();
+}
 
 
 

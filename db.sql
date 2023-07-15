@@ -56,19 +56,22 @@ DROP TABLE IF EXISTS "esgi_pages";
 DROP SEQUENCE IF EXISTS pages_id_seq;
 CREATE SEQUENCE pages_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1;
 
-CREATE TABLE "public"."esgi_pages" (
+/*CREATE TABLE "public"."esgi_pages" (
     "id" integer DEFAULT nextval('pages_id_seq') NOT NULL,
     "title" character varying(255) NOT NULL,
     "content" text NOT NULL,
     "created_at" timestamp DEFAULT CURRENT_TIMESTAMP,
     "updated_at" timestamp,
     CONSTRAINT "pages_pkey" PRIMARY KEY ("id")
-) WITH (oids = false);
+
+) WITH (oids = false);4
+
+) WITH (oids = false);*/
+
 
 DROP TABLE IF EXISTS "esgi_comment";
 DROP SEQUENCE IF EXISTS comment_id_seq;
 CREATE SEQUENCE comment_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1;
-
 
 CREATE TABLE esgi_comment (
   id SERIAL PRIMARY KEY,
@@ -76,9 +79,24 @@ CREATE TABLE esgi_comment (
   user_id INT NOT NULL,
   content TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  moderated BOOLEAN DEFAULT FALSE,
-  flagged BOOLEAN DEFAULT FALSE,
+  moderated INT DEFAULT 0,
+  flagged INT DEFAULT 0,
   flagged_count INT DEFAULT 0,
   FOREIGN KEY (article_id) REFERENCES esgi_article(id),
   FOREIGN KEY (user_id) REFERENCES esgi_user(id)
 );
+
+
+DROP TABLE IF EXISTS "esgi_pages";
+DROP SEQUENCE IF EXISTS pages_id_seq;
+CREATE SEQUENCE pages_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1;
+
+CREATE TABLE "public"."esgi_pages" (
+    "id" integer DEFAULT nextval('pages_id_seq') NOT NULL,
+    "title" character varying(255) NOT NULL,
+    "content" text NOT NULL,
+    "created_at" timestamp DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" timestamp,
+    "created_by" integer NOT NULL,
+    CONSTRAINT "pages_pkey" PRIMARY KEY ("id")
+) WITH (oids = false);
