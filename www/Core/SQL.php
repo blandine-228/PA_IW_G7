@@ -13,7 +13,7 @@ abstract class SQL{
         //Connexion à la bdd
         //SINGLETON à réaliser
         try {
-            $this->pdo = new \PDO("pgsql:host=database;dbname=pa-iw;port=5432", "pa-iw", "Response11");
+            $this->pdo = new \PDO("pgsql:host=postgresql-blogesgi.alwaysdata.net;dbname=blogesgi_db;port=5432", "blogesgi", "Je@np@ul1999");
         }catch(\Exception $e){
             die("Erreur SQL : ".$e->getMessage());
         }
