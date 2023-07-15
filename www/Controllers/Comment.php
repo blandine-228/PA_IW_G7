@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\View;
 use App\datatable\commentTable;
+use App\datatable\commentTableFront;
 use App\Forms\CommentForm;
 use App\Models\Comment as CommentModel;
 use App\Models\Article;
@@ -148,6 +149,33 @@ public function delete()
     exit;
 }
 
+public function show()
+{
+    // Récupérer l'ID de l'article depuis l'URL
+    if (!isset($_GET['article_id']) || !is_numeric($_GET['article_id'])) {
+        echo "ID de l'article non fourni ou invalide!";
+        return;
+    }
+
+    $articleId = $_GET['article_id'];
+
+    // Récupérer tous les commentaires modérés pour l'article spécifié
+    $commentModel = new CommentModel();
+    $moderatedComments = $commentModel->getAllWhere(["article_id" => $articleId, "moderated" => 1]);
+
+    
+    // Préparer la table de commentaires
+    $commentTableFront = new commentTableFront($moderatedComments);
+
+    // Préparer la vue
+    $view = new View('Comment/show', 'front');
+
+    // Assigner les données à la vue
+    $view->assign("table", $commentTableFront->getConfig());
+
+    // Afficher la vue
+    $view->render();
+}
 
 
 }
