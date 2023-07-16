@@ -28,7 +28,7 @@ spl_autoload_register(function ($class) {
     }
 });
 
-echo extension_loaded('yaml') ? 'YAML extension is installed' : 'YAML extension is not installed';
+
 
 
 //Afficher le controller et l'action correspondant à l'URI
