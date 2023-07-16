@@ -38,6 +38,7 @@ class Pages {
         $pages->setTitle($_POST['title']);
         $pages->setContent($_POST['content']);
         $pages->setCreated_by($_SESSION['user_id']); // Définir l'ID de l'utilisateur qui a créé la page
+        $pages->setSlug($_POST['slug']);
         $pages->save();
 
         
@@ -73,6 +74,7 @@ class Pages {
             if($form->isSubmitted() && $form->isValid()){
                 $pages->setTitle($_POST['title']);
                 $pages->setContent($_POST['content']);
+                $pages->setSlug($_POST['slug']);
                 $pages->save();
                 header('Location: /pages');
             }

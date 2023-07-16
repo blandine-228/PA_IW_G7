@@ -39,6 +39,15 @@ class PagesForm extends Validator
                         "required" => true
                     ],
 
+                    "slug" => [
+                        "id" => "pages-form-slug",
+                        "class" => "form-input",
+                        "placeholder" => "Slug",
+                        "type" => "text",
+                        "error" => "Your slug is incorrect",
+                        "required" => true
+                    ]
+
                     
 
                     
