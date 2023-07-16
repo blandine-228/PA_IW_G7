@@ -28,7 +28,7 @@ logout:
   controller: Auth
   action: logout
 
-s-inscrire:
+register:
   controller: Auth
   action: register
 
@@ -40,85 +40,85 @@ verify:
   controller: Auth
   action: verify
 
-user_read:
+users:
     controller: User
     action: read
 
-user_create:
+user/create:
     path: /user/create
     controller: User
     action: create
 
-user_update:
+user/update:
     path: /user/update/{id}
     controller: User
     action: update
 
-user_delete:
+user/delete:
     path: /user/delete/{id}
     controller: User
     action: delete
 
 
-article_read:
+articles:
     controller: Article
     action: read
     
-article_create:
+article/create:
     controller: Article
     action: create
 
-article_update:
+article/update:
     controller: Article
     action: update
 
-article_delete:
+article/delete:
     controller: Article
     action: delete
 
 
 
-pages_read:
+pages:
     controller: Pages
     action: read
     
-pages_create:
+pages/create:
     controller: Pages
     action: create
 
-pages_update:
+pages/update:
     controller: Pages
     action: update
 
-pages_delete:
+pages/delete:
     controller: Pages
     action: delete
 
-comment_read:
+comments:
     controller: Comment
     action: read
         
-comment_create:
+comment/create:
     controller: Comment
     action: create
 
-comment_approve:
+comment/approve:
   path: /comment/approve/{id}
   controller: Comment
   action: approve
 
-comment_delete:
+comment/delete:
     path: /comment/delete/{id}
     controller: Comment
     action: delete
 
-comment_show:
+comment/show:
     path: /article/show/{id}
     controller: Comment
     action: show    
  
 
-article_show:
+article/show:
     path: /article/show/{id}
     controller: Article
     action: show

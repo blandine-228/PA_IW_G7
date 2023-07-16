@@ -28,7 +28,7 @@
         <div class="col-md-3">
             <div class="well dash-box">
                 <h2><span class="glyphicon glyphicon-user" aria-hidden="true">
-                    <a href="/user_read"></span> <?php echo $userCount; ?></h2>
+                    <a href="/users"></span> <?php echo $userCount; ?></h2>
                         <h4>Users</h4>
                     </a>
             </div>
@@ -36,7 +36,7 @@
         <div class="col-md-3">
             <div class="well dash-box">
                 <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-                <a href="/article_read"> <?php echo $articleCount; ?></h2>
+                <a href="/articles"> <?php echo $articleCount; ?></h2>
                     <h4>Article</h4>
                 </a>
             </div>
@@ -45,7 +45,7 @@
         <div class="col-md-3">
             <div class="well dash-box">
                 <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 
-                <a href="/article_read"><?php echo $pagesCount; ?></h2>
+                <a href="/articles"><?php echo $pagesCount; ?></h2>
                     <h4>Pages</h4>
                 </a>
             </div>
@@ -54,7 +54,7 @@
         <div class="col-md-3">
             <div class="well dash-box">
                 <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 
-                <a href="/comment_read"><?php echo $commentCount; ?></h2>
+                <a href="/comments"><?php echo $commentCount; ?></h2>
                     <h4>Comments</h4>
                 </a>
             </div>

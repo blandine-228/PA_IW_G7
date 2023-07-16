@@ -37,8 +37,8 @@ class CommentTable
             ],
             "data" => $this->comments, // Passons directement les commentaires à la vue
             "actions" => [
-                "approve" => "/comment_approve?id=",
-                "delete" => "/comment_delete?id=",
+                "approve" => "/comment/approve?id=",
+                "delete" => "/comment/delete?id=",
             ],
         ];
 

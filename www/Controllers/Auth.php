@@ -142,7 +142,8 @@ class Auth
             
             // Construire le lien de vérification.
             // Supposons que votre méthode de vérification soit accessible à l'URL /verify et prenne un paramètre token.
-            $verifyLink = "http://localhost/verify?token=$verificationToken";
+            //$verifyLink = "http://localhost/verify?token=$verificationToken";
+            $verifyLink = "http://blogesgi.svp.com/verify?token=$verificationToken";
             $content = "<p>Cliquez sur le lien suivant pour valider votre compte: <a href=\"$verifyLink\">$verifyLink</a></p>";
             
             $mail->MsgHTML($content);

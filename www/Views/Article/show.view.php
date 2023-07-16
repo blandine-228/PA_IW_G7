@@ -10,13 +10,13 @@
 <p>Created at: <?= $article->getCreated_at(); ?></p>
 
 <button>
-<a href="/comment_create?article_id=<?= $article->getId() ?>">Ajouter un commentaire</a>
+<a href="/comment/create?article_id=<?= $article->getId() ?>">Ajouter un commentaire</a>
 </button>
 
 
 <button>
 
-<a href="/comment_show?article_id=<?= $article->getId() ?>">Voir  les commentaires</a>
+<a href="/comment/show?article_id=<?= $article->getId() ?>">Voir  les commentaires</a>
 
 
 </button>

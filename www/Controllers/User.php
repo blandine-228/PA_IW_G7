@@ -70,7 +70,7 @@ class User {
     
             $user->setRole($_POST['role']);
             $user->save();
-            header('Location: /user_read');
+            header('Location: /users');
         }
     }
     
@@ -89,7 +89,7 @@ class User {
         $user->delete();
     
         // Redirige vers une autre page, par exemple, la liste des utilisateurs
-        header('Location: /user_read');
+        header('Location: /users');
     }
     
 

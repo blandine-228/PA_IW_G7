@@ -44,7 +44,7 @@ class articleTableFront
             "data" => $this->articles,
             "actions" => [
                 
-                "comment" => "/comment_create?id=",
+                "comment" => "/comment/create?id=",
             ],
               
         ];

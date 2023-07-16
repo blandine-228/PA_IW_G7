@@ -40,8 +40,8 @@ class userTable
             ],
             "data" => $this->users,
             "actions" => [
-                "update" => "/user_update?id=",
-                "delete" => "/user_delete?id=",
+                "update" => "/user/update?id=",
+                "delete" => "/user/delete?id=",
             ],
               
         ];

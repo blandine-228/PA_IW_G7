@@ -45,7 +45,7 @@ class Article{
             $article->save();
 
 
-            header('Location: /article_read');
+            header('Location: /articles');
         }
     }
 
@@ -71,7 +71,7 @@ class Article{
             $article->setTitle($_POST['title']);
             $article->setContent($_POST['content']);
             $article->save();
-            header('Location: /article_read');
+            header('Location: /articles');
         }
     }
 
@@ -92,7 +92,7 @@ class Article{
 
     $article->delete();
 
-    header('Location: /article_read');
+    header('Location: /articles');
 }
 
 //read on article

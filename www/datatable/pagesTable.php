@@ -38,8 +38,8 @@ class pagesTable
             ],
             "data" => $this->pages,
             "actions" => [
-                "update" => "/pages_update?id=",
-                "delete" => "/pages_delete?id=",
+                "update" => "/pages/update?id=",
+                "delete" => "/pages/delete?id=",
             ],
               
         ];

@@ -54,22 +54,22 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/user_read">
+                    <a class="nav-link" href="/users">
                         <i class="fas fa-users"></i> Gérer les utilisateurs
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/article_read">
+                    <a class="nav-link" href="/articles">
                         <i class="fas fa-newspaper"></i> Gérer les articles
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages_read">
+                    <a class="nav-link" href="/pages">
                         <i class="fas fa-file"></i> Gérer les pages
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/comment_read">
+                    <a class="nav-link" href="/comments">
                         <i class="fas fa-comments"></i> Gérer les commentaires
                     </a>
                 </li>

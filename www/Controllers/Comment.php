@@ -58,7 +58,7 @@ class Comment
             $comment->save();
 
             // Redirigez l'utilisateur vers la page de l'article
-            header('Location: /article_show/?id=' . $article->getId());
+            header('Location: /article/show/?id=' . $article->getId());
             exit;
         }
 
@@ -113,7 +113,7 @@ class Comment
     $comment->save();
 
     // Redirigez l'utilisateur vers la page précédente ou vers la page d'administration des commentaires
-    header('Location: /comment_read');
+    header('Location: /comments');
     exit;
 }
 
@@ -145,7 +145,7 @@ public function delete()
     $comment->delete();
 
     // Redirigez l'utilisateur vers la page précédente ou vers la page d'administration des commentaires
-    header('Location: /comment_read');
+    header('Location: /comments');
     exit;
 }
 

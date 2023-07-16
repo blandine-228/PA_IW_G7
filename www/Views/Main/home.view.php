@@ -7,7 +7,7 @@
         <p>Author: <?= $article->getAuthor(); ?></p>
         <p>Created at: <?= $article->getCreated_at(); ?></p>
         
-        <a href="/article_show/?id=<?= $article->getId(); ?>" class="read-more-btn">Voir plus</a>
+        <a href="/article/show/?id=<?= $article->getId(); ?>" class="read-more-btn">Voir plus</a>
 
 
     </article>

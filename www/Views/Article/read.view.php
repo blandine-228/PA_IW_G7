@@ -1,4 +1,4 @@
 <?php $this->partial("table", $table); ?>
 <button>
-    <a href="/article_create">Create</a>
+    <a href="/article/create">Create</a>
 </button>

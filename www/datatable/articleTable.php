@@ -43,8 +43,8 @@ class articleTable
             ],
             "data" => $this->articles,
             "actions" => [
-                "update" => "/article_update?id=",
-                "delete" => "/article_delete?id=",
+                "update" => "/article/update?id=",
+                "delete" => "/article/delete?id=",
             ],
               
         ];

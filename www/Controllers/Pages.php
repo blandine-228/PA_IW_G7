@@ -43,7 +43,7 @@ class Pages {
         
 
         
-        header('Location: /pages_read');
+        header('Location: /pages');
         exit;
     }
 
@@ -74,7 +74,7 @@ class Pages {
                 $pages->setTitle($_POST['title']);
                 $pages->setContent($_POST['content']);
                 $pages->save();
-                header('Location: /pages_read');
+                header('Location: /pages');
             }
         }
 
@@ -91,7 +91,7 @@ class Pages {
         
             $pages->delete();
         
-            header('Location: /pages_read');
+            header('Location: /pages');
         }
         
 }
