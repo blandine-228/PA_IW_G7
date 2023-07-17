@@ -13,6 +13,7 @@ class Pages extends SQL{
     protected ?String $created_at;
     protected ?String $updated_at;
     protected ?int $created_by;
+    protected ?String $slug;
     public function __construct(){
         parent::__construct();
     }
@@ -124,6 +125,25 @@ class Pages extends SQL{
     public function setCreated_by(int $created_by): void
     {
         $this->created_by = $created_by;
+    }
+
+    /**
+     * Get the value of slug
+     * @return String
+     */
+    public function getSlug(): ?string
+    {
+        return $this->slug ?? '';
+    }
+
+    /**
+     * Set the value of slug
+     * @param String $slug
+     */
+
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
     }
 
 

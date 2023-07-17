@@ -30,11 +30,13 @@ class pagesTable
                 "Title" => "Title",
                 "Content" => "Content",
                 "created_by" => "Created by",
+                "slug" => "Slug",
             ],
             "body" =>[
                 "title" => "title",
                 "content" => "content",
                 "created_by" => "created_by",
+                "slug" => "slug",
             ],
             "data" => $this->pages,
             "actions" => [

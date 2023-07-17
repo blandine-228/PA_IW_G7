@@ -46,7 +46,17 @@ class UpdatePagesForm extends Validator
                     "error" => "Votre contenu est incorrect",
                     "value" => $pages ? $pages->getContent() : '',
                     "required" => true
-                ]
+                ],
+
+                "slug" => [
+                    "id" => "update-pages-form-slug",
+                    "class" => "form-input",
+                    "placeholder" => "Slug de la page",
+                    "type" => "text",
+                    "error" => "Votre slug est incorrect",
+                    "value" => $pages ? $pages->getSlug() : '',
+                    "required" => true
+                ],
 
 
             ]
