@@ -39,6 +39,7 @@ class Pages {
         $pages->setContent($_POST['content']);
         $pages->setCreated_by($_SESSION['user_id']); // Définir l'ID de l'utilisateur qui a créé la page
         $pages->setSlug($_POST['slug']);
+        $pages->setStatus(0); 
         $pages->save();
 
         
@@ -75,6 +76,7 @@ class Pages {
                 $pages->setTitle($_POST['title']);
                 $pages->setContent($_POST['content']);
                 $pages->setSlug($_POST['slug']);
+                $pages->setStatus($_POST['status']);
                 $pages->save();
                 header('Location: /pages');
             }
@@ -96,4 +98,20 @@ class Pages {
             header('Location: /pages');
         }
         
+
+        public function publish($params): void
+        {
+            $id = $params['id'];  // Récupère l'ID de la page à partir des paramètres de l'URL
+        
+            $pagesModel = new PagesModel();
+            $pages = $pagesModel->getOneWhere(["id"=> $id ]);  
+            if (!$pages) {
+                throw new \Exception('Page not found');
+            }
+        
+            $pages->setStatus(1);  // Change le statut de la page à 1 (publié)
+            $pages->save();
+        
+            header('Location: /pages');  // Redirige l'utilisateur vers la liste des pages
+        } 
 }

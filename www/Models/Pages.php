@@ -14,6 +14,8 @@ class Pages extends SQL{
     protected ?String $updated_at;
     protected ?int $created_by;
     protected ?String $slug;
+    protected ?int $status;
+
     public function __construct(){
         parent::__construct();
     }
@@ -145,6 +147,26 @@ class Pages extends SQL{
     {
         $this->slug = $slug;
     }
+
+    /**
+     * Get the value of status
+     * @return Int
+     */
+    public function getStatus(): int
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set the value of status
+     * @param Int $status
+     */
+
+    public function setStatus(int $status): void
+    {
+        $this->status = $status;
+    }
+    
 
 
 }

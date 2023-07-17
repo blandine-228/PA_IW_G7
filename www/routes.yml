@@ -123,6 +123,13 @@ article/show:
     controller: Article
     action: show
 
+pages/publish:
+    path: /pages/publish/{id}
+    controller: Pages
+    action: publish
+
+
+
 # STEP 1 : ajotuer la nouvelle route
 # STEP 2 : créer la fonction dans le controller désigné dans la route
 # STEP 1 : créer un ficher X.form.php dans lequel tu décris les configs

@@ -38,8 +38,6 @@ class PagesForm extends Validator
                         "error" => "Your content is incorrect",
                         "required" => true
                     ],
-                    
-
                     "slug" => [
                         "id" => "pages-form-slug",
                         "class" => "form-input",
@@ -48,11 +46,7 @@ class PagesForm extends Validator
                         "error" => "Your slug is incorrect",
                         "required" => true
                     ]
-
-                    
-
-                    
-
+                   
                 ]
             ];
     

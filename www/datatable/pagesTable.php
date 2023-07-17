@@ -26,27 +26,30 @@ class pagesTable
                 "class" => "table",
             ],
             "headers" => [
-                
                 "Title" => "Title",
                 "Content" => "Content",
                 "created_by" => "Created by",
                 "slug" => "Slug",
+                "status" => "Status",  // Ajoutez le header de statut
             ],
             "body" =>[
                 "title" => "title",
                 "content" => "content",
                 "created_by" => "created_by",
                 "slug" => "slug",
+                "status" => "status",  // Ajoutez le champ de statut
             ],
             "data" => $this->pages,
             "actions" => [
                 "update" => "/pages/update?id=",
                 "delete" => "/pages/delete?id=",
-            ],
-              
+                "publish" => "/pages/publish?id=", // Ajoutez l'action de publication
+                // Vous pouvez ajouter d'autres actions basées sur le statut ici
+            ],              
         ];
     
 
         return $this->config;
     }
 }
+
