@@ -34,6 +34,7 @@ class Validator
                 die("Tentative de Hack3");
             }
             if(isset($configInput["required"]) && self::isEmpty($this->data[$name])){
+                // var_dump($this->data);die;
                 die("Tentative de Hack4");
             }
             if(isset($configInput["min"]) && !self::isMinLength($this->data[$name], $configInput["min"])){

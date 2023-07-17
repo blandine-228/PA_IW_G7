@@ -19,7 +19,7 @@ class Login extends Validator
                 "class" => "form",
                 "enctype" => "",
                 "submit" => "Se connecter",
-                "reset" => "Réinitialiser"
+                "reset"=>"Annuler"
             ],
             "inputs" => [
                 "email" => [

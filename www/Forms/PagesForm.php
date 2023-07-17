@@ -31,13 +31,14 @@ class PagesForm extends Validator
                         "required" => true
                     ],
                     "content" => [
-                        "id" => "pages-form-content",
+                        "id" => "content-input",
                         "class" => "form-input",
                         "placeholder" => "Content",
-                        "type" => "text",
+                        "type" => "hidden", // Change this to hidden
                         "error" => "Your content is incorrect",
                         "required" => true
                     ],
+                    
 
                     
 
