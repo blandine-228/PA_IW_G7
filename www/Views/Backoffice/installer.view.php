@@ -11,6 +11,6 @@
 
 </div>
 
-<script src="/assets/js/web_api/core/config.js"></script>
-<script src="/assets/js/web_api/core/api.js"></script>
-<script src="/assets/js/web_api/core/installer.js"></script>
+<script src="/js/web_api/core/config.js"></script>
+<script src="/js/web_api/core/api.js"></script>
+<script src="/js/web_api/core/installer.js"></script>

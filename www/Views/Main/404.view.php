@@ -1,9 +1,9 @@
 <main role="main">
-    <section class="bg-white dark:bg-gray-900 ">
+    <section class="bg-white">
         <div class="container min-h-screen px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12">
             <div class="wf-ull lg:w-1/2">
                 <p class="text-sm font-medium text-blue-500 dark:text-blue-400">Erreur 404</p>
-                <h1 class="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">Page demandée introuvable</h1>
+                <h1 class="mt-3 text-2xl font-semibold text-gray-900 md:text-3xl">Page demandée introuvable</h1>
                 <p class="mt-4 text-gray-500 dark:text-gray-400">Désolé, nous n'avons pas pu trouver la page demandée.</p>
 
                 <div class="flex items-center mt-6 gap-x-3">
@@ -22,7 +22,7 @@
             </div>
 
             <div class="relative w-full mt-8 lg:w-1/2 lg:mt-0">
-                <img class="w-full lg:h-[32rem] h-80 md:h-96 rounded-lg object-cover " src="http://localhost/assets/images/erreur_404.jpg" alt="Robot assis erreur 404">
+                <img class="w-full lg:h-[32rem] h-80 md:h-96 rounded-lg object-cover " src="/images/erreur_404.jpg" alt="Robot assis erreur 404">
             </div>
         </div>
     </section>
