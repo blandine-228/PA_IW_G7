@@ -89,6 +89,7 @@ CREATE TABLE esgi_comment (
 
 DROP TABLE IF EXISTS "esgi_pages";
 DROP SEQUENCE IF EXISTS pages_id_seq;
+
 CREATE SEQUENCE pages_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1;
 
 CREATE TABLE "public"."esgi_pages" (
@@ -99,13 +100,11 @@ CREATE TABLE "public"."esgi_pages" (
     "updated_at" timestamp,
     "created_by" integer NOT NULL,
     "slug" character varying(255),
+    "status" integer DEFAULT 0 NOT NULL,
     CONSTRAINT "pages_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
 
-INSERT INTO "esgi_pages" ("id", "title", "content", "created_at", "updated_at", "created_by", "slug") VALUES
-(7,	'Jojo',	'jojojojoj',	'2023-07-13 12:54:11.832616',	NULL,	14,	'read'),
-(9,	'Rr',	'AAA',	'2023-07-13 14:12:51.400672',	NULL,	14,	'create'),
-(8,	'Tt',	'tt',	'2023-07-13 13:01:15.43432',	NULL,	16,	'do'),
-(15,	'Cou',	'cou',	'2023-07-16 21:34:39.535548',	NULL,	17,	'coucouu');
+
+
 
 ALTER TABLE ONLY "public"."esgi_pages" ADD CONSTRAINT "fk_page_created_by" FOREIGN KEY (created_by) REFERENCES esgi_user(id) ON DELETE CASCADE NOT DEFERRABLE;
