@@ -22,9 +22,16 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+          
             <li class="active"><a href="/">Home</a></li>
             <li class=""><a href="">About</a></li>
-            <li class=""><a href="http://www.phpzag.com">Contact</a></li>
+            <li class=""><a href="">Contact</a></li>
+            <?php if (isset($pages) && is_array($pages)) : ?>
+            <?php foreach ($pages as $page) : ?>
+              <li><a href="/pages/<?= $page->getSlug(); ?>"><?= $page->getTitle(); ?></a></li>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          
             <?php if (isset($_SESSION['user_id']) && $_SESSION['role'] === 'admin'): ?>
                 <li><a href="/dashboard">Dashboard</a></li>
             <?php endif; ?> 
@@ -46,7 +53,10 @@
       </div>
     </div>
     <!-- inclure la vue -->
-     <?php include $this->view;?>
+    <div class="container">
+      <?php include $this->view;?>
+    </div>
+     
     <div class="container" style="min-height:500px;">
     <div class="insert-post-ads1" style="margin-top:20px;">
 </div>

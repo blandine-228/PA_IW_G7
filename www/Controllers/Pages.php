@@ -27,50 +27,50 @@ class Pages {
     }
 
     public function create(): void
-{
-    $form = new PagesForm();
-    $view = new View("Pages/create", "back");
-    $view->assign("form", $form->getConfig());
-    $view->assign("formErrors", $form->errors);
+    {
+        $form = new PagesForm();
+        $view = new View("Pages/create", "back");
+        $view->assign("form", $form->getConfig());
+        $view->assign("formErrors", $form->errors);
 
-    if($form->isSubmitted() && $form->isValid()){
-        $pages = new PagesModel();
-        $pages->setTitle($_POST['title']);
-        $pages->setContent($_POST['content']);
-        $pages->setCreated_by($_SESSION['user_id']); // Définir l'ID de l'utilisateur qui a créé la page
-        $pages->setSlug($_POST['slug']);
-        $pages->setStatus(0); 
-        $pages->save();
-
-        
+        if($form->isSubmitted() && $form->isValid()){
+            $pages = new PagesModel();
+            $pages->setTitle($_POST['title']);
+            $pages->setContent($_POST['content']);
+            $pages->setCreated_by($_SESSION['user_id']); // Définir l'ID de l'utilisateur qui a créé la page
+            $pages->setSlug($_POST['slug']);
+            $pages->setStatus(0); 
+            $pages->save();
 
         
-        header('Location: /pages');
-        exit;
+
+        
+         header('Location: /pages');
+            exit;
+        }
+
+        // Afficher la vue du formulaire de création
+        $view->render();
     }
-
-    // Afficher la vue du formulaire de création
-    $view->render();
-}
 
   
 
 
-        public function update($params): void
-        {
-            $id = $params['id'];  // Récupère l'ID de l'utilisateur à partir des paramètres de l'URL
+    public function update($params): void
+    {
+        $id = $params['id'];  // Récupère l'ID de l'utilisateur à partir des paramètres de l'URL
         
-            $pagesModel = new PagesModel();
-            $pages = $pagesModel->getOneWhere(["id"=> $id ]);  
-            if (!$pages) {
-                throw new \Exception('Page not found');
-            }
+        $pagesModel = new PagesModel();
+        $pages = $pagesModel->getOneWhere(["id"=> $id ]);  
+        if (!$pages) {
+            throw new \Exception('Page not found');
+        }
         
-            $form = new UpdatePagesForm();
+        $form = new UpdatePagesForm();
         
-            $view = new View("Pages/update", "back");
-            $view->assign("form", $form->getConfig($pages));
-            $view->assign("formErrors", $form->errors);
+        $view = new View("Pages/update", "back");
+        $view->assign("form", $form->getConfig($pages));
+        $view->assign("formErrors", $form->errors);
         
             if($form->isSubmitted() && $form->isValid()){
                 $pages->setTitle($_POST['title']);
@@ -80,7 +80,7 @@ class Pages {
                 $pages->save();
                 header('Location: /pages');
             }
-        }
+    }
 
 
         public function delete($params): void
@@ -113,5 +113,69 @@ class Pages {
             $pages->save();
         
             header('Location: /pages');  // Redirige l'utilisateur vers la liste des pages
-        } 
+        }
+
+
+        //read page front
+
+    public function readFront()
+    {
+        $pagesModel = PagesModel::getInstance();
+        $allPages = $pagesModel->getAll();
+
+        $view = new View("Pages/readFront", "front");
+        $view->assign("pages", $allPages);
+
+        $view->render();
+    }
+
+
+
+    //unpublished page
+
+    public function unpublish($params): void
+{
+    $id = $params['id'];  // Récupère l'ID de la page à partir des paramètres de l'URL
+
+    $pagesModel = new PagesModel();
+    $pages = $pagesModel->getOneWhere(["id"=> $id ]);  
+    if (!$pages) {
+        throw new \Exception('Page not found');
+    }
+
+    $pages->setStatus(0);  // Change le statut de la page à 0 (non publié)
+    $pages->save();
+
+    header('Location: /pages');  // Redirige l'utilisateur vers la liste des pages
+}
+
+
+
+
+//show page
+
+    public function show($params)
+    {
+        $slug = $params['slug'];
+        var_dump($slug);
+
+        $pagesModel = PagesModel::getInstance();
+        $pages = $pagesModel->getOneWhere(["slug"=> $slug ]);  
+        if (!$pages) {
+            echo "Page not found";
+        }
+
+        $view = new View("Pages/show", "front");
+        $view->assign("pages", $pages);
+
+        $view->render();
+    }
+
+
+
+
+
+
+
+
 }

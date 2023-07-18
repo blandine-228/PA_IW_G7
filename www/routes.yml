@@ -128,6 +128,15 @@ pages/publish:
     controller: Pages
     action: publish
 
+pages/unpublish:
+    path: /pages/unpublish/{id}
+    controller: Pages
+    action: unpublish
+
+pages/show:
+    controller: Pages
+    action: show
+
 
 
 # STEP 1 : ajotuer la nouvelle route
