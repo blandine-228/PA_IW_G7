@@ -1,4 +1,11 @@
-<table id="<?= $config["config"]["id"] ?>" class="<?= $config["config"]["class"] ?>">
+<style>
+.table-space {
+    padding-bottom: 20px; /* Modifier cette valeur en fonction de l'espace dont vous avez besoin */
+    border-bottom: none; /* Retirer la bordure en bas */
+}
+</style>
+
+<table id="<?= $config["config"]["id"] ?>" class="table table-striped table-hover <?= $config["config"]["class"] ?> table-space">
     <thead>
         <tr>
             <?php foreach ($config["headers"] as $key => $header): ?>
@@ -10,7 +17,15 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($config["data"] as $user): ?>
+        <?php 
+        $actionColors = [
+            "update" => "btn-primary",
+            "delete" => "btn-danger",
+            "publish" => "btn-success",
+            "approve" => "btn-warning",
+            // ajoutez plus d'actions si nécessaire
+        ];
+        foreach ($config["data"] as $user): ?>
             <tr>
                 <?php foreach ($config["body"] as $key => $value): ?>
                     <td><?= $user->{"get".ucfirst($value)}() ?></td>  <!-- Utilisation des méthodes d'accès -->
@@ -18,7 +33,7 @@
                 <?php if(!empty($config["actions"])): ?>
                     <td>
                         <?php foreach ($config["actions"] as $action => $url): ?>
-                            <a href="<?= $url . $user->getId() ?>"><?= ucfirst($action) ?></a> <!-- Suppose que vous avez une méthode getId() -->
+                            <a href="<?= $url . $user->getId() ?>" class="btn <?= $actionColors[$action] ?>"><?= ucfirst($action) ?></a> <!-- Suppose que vous avez une méthode getId() -->
                         <?php endforeach; ?>
                     </td>
                 <?php endif; ?>
@@ -33,4 +48,4 @@
             paging: false,
             info: false,
         });
-    });</script>
+    });</script> 

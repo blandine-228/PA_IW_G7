@@ -1,27 +1,47 @@
 <style>
+
+.form-button, .form-button-res {
+    padding: 12px 25px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+  }
+
   .form-button {
-    padding: 10px 10px;
-   height: 30px;
     background-color: #4CAF50;
     color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-    /* Ajoutez d'autres styles selon vos besoins */
-}
+  }
 
-.form-button-res {
-    padding: 10px 10px;
-   height: 30px;
+  .form-button:hover {
+    background-color: #45a049;
+  }
+
+  .form-button-res {
     background-color: #cc3434;
     color: white;
-    border: none;
+  }
+
+  .form-button-res:hover {
+    background-color: #b02e2e;
+  }
+
+.form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-    /* Ajoutez d'autres styles selon vos besoins */
-}
+    box-sizing: border-box;
+  }
 
 </style>
 <form method="<?= $config["config"]["method"] ?>"
