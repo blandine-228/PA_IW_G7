@@ -23,6 +23,8 @@
             "delete" => "btn-danger",
             "publish" => "btn-success",
             "approve" => "btn-warning",
+            "signal" => "btn-danger",
+            "unpublish" => "btn-warning",
             // ajoutez plus d'actions si nécessaire
         ];
         foreach ($config["data"] as $user): ?>
