@@ -43,10 +43,14 @@ class pagesTable
             "actions" => [
                 "update" => "/pages/update?id=",
                 "delete" => "/pages/delete?id=",
+                
                 "publish" => "/pages/publish?id=", // Ajoutez l'action de publication
-                // Vous pouvez ajouter d'autres actions basées sur le statut ici
+                "unpublish" => "/pages/unpublish?id=", // Ajoutez l'action de dépublication
+                
             ],              
         ];
+
+        
     
 
         return $this->config;

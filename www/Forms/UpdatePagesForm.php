@@ -58,6 +58,16 @@ class UpdatePagesForm extends Validator
                     "required" => true
                 ],
 
+                "status" => [
+                    "id" => "update-pages-form-status",
+                    "class" => "form-input",
+                    "placeholder" => "Status de la page",
+                    "type" => "text",
+                    "error" => "Votre status est incorrect",
+                    "value" => $pages ? $pages->getStatus() : '',
+                    "required" => true
+                ],
+
 
             ]
         ];
