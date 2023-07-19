@@ -133,9 +133,11 @@ pages/unpublish:
     controller: Pages
     action: unpublish
 
+
 pages/show:
     controller: Pages
     action: show
+
 
 
 

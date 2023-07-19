@@ -1,4 +1,4 @@
-<h2>Welcome</h2>
+<h2>Welcome to esgi Cours</h2>
 
 <?php foreach ($articles as $article): ?>
     <article class="article">
