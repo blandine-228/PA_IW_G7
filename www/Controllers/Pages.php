@@ -9,9 +9,37 @@ use App\Forms\UpdatePagesForm;
 use App\Forms\DeletePagesForm;
 use App\Models\Pages as PagesModel;
 use App\Models\User;
+use App\Models\Memento;
 
 
 class Pages {
+
+    private $pageModel;
+    private $mementos = [];
+
+    public function __construct() {
+        $this->pageModel = new PagesModel();
+    }
+
+
+    public function onPageSave($currentState) {
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $currentState = $_POST["content"];
+        }
+        $this->mementos[] = new Memento($currentState);
+
+        // Mettre à jour le modèle de page avec le nouvel état
+        $this->pageModel->setState($currentState);
+    }
+
+    public function onPageUndo() {
+        if (!empty($this->mementos)) {
+            // Restauration de l'état précédent depuis le dernier memento
+            $lastMemento = array_pop($this->mementos);
+            $this->pageModel->setState($lastMemento->getState());
+        }
+    }
 
     public function read() {
         // Récupérer toutes les pages

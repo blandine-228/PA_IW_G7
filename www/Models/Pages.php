@@ -15,6 +15,7 @@ class Pages extends SQL{
     protected ?int $created_by;
     protected ?String $slug;
     protected ?int $status;
+    private $state;
 
     public function __construct(){
         parent::__construct();
@@ -167,6 +168,20 @@ class Pages extends SQL{
         $this->status = $status;
     }
     
+    public function setState($state) {
+        $this->state = $state;
+    }
 
+    public function getState() {
+        return $this->state;
+    }
+
+    public function saveToMemento() {
+        return new Memento($this->state);
+    }
+
+    public function restoreFromMemento(Memento $memento) {
+        $this->state = $memento->getState();
+    }
 
 }

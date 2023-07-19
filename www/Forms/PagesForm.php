@@ -2,7 +2,7 @@
 
 namespace App\Forms;
 use App\Core\Validator;
-
+use App\Controllers\Pages;
 
 class PagesForm extends Validator
 {
@@ -51,5 +51,7 @@ class PagesForm extends Validator
             ];
     
             return $this->config;
+
+            
     }
 }
