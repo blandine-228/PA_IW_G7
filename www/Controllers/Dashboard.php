@@ -46,9 +46,16 @@ class Dashboard
         // Afficher la vue
         $view->render();
     }
+/*
+    public function changeTheme() {
+        if (isset($_POST['theme'])) {
+            $_SESSION['theme'] = $_POST['theme'];
+        }
 
+        // rediriger l'utilisateur vers le tableau de bord
+        header('Location: /dashboard');
+    }
 
-
-    
+   */ 
     
 }

@@ -77,7 +77,7 @@ class Comment
         // Afficher les articles dans une vue appropriée
         $table = new commentTable($allArticles);
 
-        $view = new View('comment/read', 'back');
+        $view = new View('Comment/read', 'back');
         $view->assign('table', $table->getConfig($allArticles));
         //$view->render();
     }

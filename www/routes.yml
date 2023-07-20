@@ -133,11 +133,15 @@ pages/unpublish:
     controller: Pages
     action: unpublish
 
-pages/show:
+
+pages/{slug}:
     controller: Pages
     action: show
 
 
+#dashboard/changeTheme:
+ # controller: Dashboard
+#  action: changeTheme
 
 # STEP 1 : ajotuer la nouvelle route
 # STEP 2 : créer la fonction dans le controller désigné dans la route

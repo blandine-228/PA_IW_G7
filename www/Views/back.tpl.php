@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Super site</title>
+    <title>Blog ESGI</title>
     <meta name="description" content="ceci est un super site">
     <link href="../public/DataTables/datatables.min.css" rel="stylesheet"/>
     <script src="../public/DataTables/datatables.min.js"></script>

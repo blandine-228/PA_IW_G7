@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Super site</title>
+    <title>Blog ESGI</title>
     <meta name="description" content="ceci est un super site">
     <link rel="stylesheet" href=css/style.css> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">

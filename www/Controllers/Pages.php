@@ -129,20 +129,6 @@ class Pages {
         
 
 
-        //read page front
-
-    public function readFront()
-    {
-        $pagesModel = PagesModel::getInstance();
-        $allPages = $pagesModel->getAll();
-
-        $view = new View("Pages/readFront", "front");
-        $view->assign("pages", $allPages);
-
-        $view->render();
-    }
-
-
 
     //unpublished page
 
@@ -172,25 +158,35 @@ class Pages {
 
 
 
+public function show(): void
+{
+    if (!isset($_GET[0])) {
+        throw new \Exception("No slug provided");
+    }
+
+    $slug = $_GET[0];
+
+    $pagesModel = new PagesModel();
+    $page = $pagesModel->getOneWhere(["slug" => $slug, "status" => 1]);  
+
+    if (!$page) {
+        http_response_code(404);
+        include('path/to/your/404.php');
+        exit;
+    }
+
+    $view = new View("Pages/show", "front");
+    $view->assign("page", $page);
+    $view->render();
+}
+
+
+
+
+
+
 
 //show page
-
-    public function show($params)
-    {
-        $slug = $params['slug'];
-        var_dump($slug);
-
-        $pagesModel = PagesModel::getInstance();
-        $pages = $pagesModel->getOneWhere(["slug"=> $slug ]);  
-        if (!$pages) {
-            echo "Page not found";
-        }
-
-        $view = new View("Pages/show", "front");
-        $view->assign("pages", $pages);
-
-        $view->render();
-    }
 
 
 
