@@ -167,6 +167,9 @@ class Pages extends SQL{
     {
         $this->status = $status;
     }
+
+
+    //MEMENTO DESIGN PATTERN
     
     public function setState($state) {
         $this->state = $state;

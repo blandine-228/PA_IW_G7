@@ -4,6 +4,13 @@ namespace App\Forms;
 use App\Core\Validator;
 use App\Controllers\Pages;
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    $currentState = $_POST["title"];
+
+    $pageController = new Pages();
+    $pageController->onPageSave($currentState);
+}
 class PagesForm extends Validator
 {
     public $method = "POST";
