@@ -45,7 +45,8 @@
         
              
     </div>
-
+    
+    <script src="./installer.js"></script>
     
 </body>
 </html>
