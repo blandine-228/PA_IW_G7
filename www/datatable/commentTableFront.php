@@ -33,7 +33,7 @@ class CommentTableFront
             ],
             "data" => $this->comments, // Passons directement les commentaires à la vue
             "actions" => [
-                "signal" => "/comment_signal?id=",
+                "signal" => "/comment/signal?id=",
             ],
         ];
 

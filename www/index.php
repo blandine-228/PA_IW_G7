@@ -24,7 +24,7 @@ spl_autoload_register(function ($class) {
 // Retrieve the current URL.
 $uri = $_SERVER["REQUEST_URI"];
 $uriExploded = explode("?", $uri);
-$uri = strtolower(trim( $uriExploded[0], "/"));
+$uri = strtolower(trim($uriExploded[0], "/"));
 
 if(empty($uri)){
     $uri = "default";
@@ -36,13 +36,27 @@ if(!file_exists("routes.yml")){
 
 $routes = yaml_parse_file("routes.yml");
 
-if (!empty($routes[$uri])) {
-    if(empty($routes[$uri]["controller"]) || empty($routes[$uri]["action"])){
+$found = false;
+
+foreach($routes as $pattern => $route) {
+    $pattern = str_replace("{slug}", "([^/]+)", $pattern);
+    $pattern = "@^".$pattern."$@i";
+
+    if(preg_match($pattern, $uri, $matches)) {
+        array_shift($matches);
+        $_GET = array_merge($_GET, $matches);
+        $found = $route;
+        break;
+    }
+}
+
+if($found) {
+    if(empty($found["controller"]) || empty($found["action"])){
         die("Cette route ne possède pas de controller ou d'action dans le fichier de routing");
     }
 
-    $controller = $routes[$uri]["controller"];
-    $action = $routes[$uri]["action"];
+    $controller = $found["controller"];
+    $action = $found["action"];
     
     // Include the controller file.
     if(!file_exists("Controllers/".$controller.".php")){

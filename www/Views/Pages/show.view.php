@@ -1,4 +1,4 @@
-<?php $this->partial("table", $table); ?>
+
 <!DOCTYPE html>
 <html>
 <head>

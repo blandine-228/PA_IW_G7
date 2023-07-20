@@ -139,11 +139,11 @@ class Pages {
 
 public function show(): void
 {
-    if (!isset($_GET['slug'])) {
+    if (!isset($_GET[0])) {
         throw new \Exception("No slug provided");
     }
 
-    $slug = $_GET['slug'];
+    $slug = $_GET[0];
 
     $pagesModel = new PagesModel();
     $page = $pagesModel->getOneWhere(["slug" => $slug, "status" => 1]);  
