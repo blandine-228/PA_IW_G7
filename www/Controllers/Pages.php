@@ -9,6 +9,8 @@ use App\Forms\UpdatePagesForm;
 use App\Forms\DeletePagesForm;
 use App\Models\Pages as PagesModel;
 use App\Models\User;
+use App\Memento\Caretaker;
+use App\Memento\Origin;
 
 
 class Pages {
@@ -97,6 +99,13 @@ class Pages {
         
             header('Location: /pages');
         }
+
+        //Ajout de propriétés Caretaker et Origin
+        private Caretaker $caretaker;
+        public function __construct()
+        {
+            $this->caretaker = new Caretaker();
+        }
         
 
         public function publish($params): void
@@ -109,11 +118,15 @@ class Pages {
                 throw new \Exception('Page not found');
             }
         
+            $origin = new Origin($pages);
+            $this->caretaker->addMemento($origin); // Enregistre un memento avant la publication
+        
             $pages->setStatus(1);  // Change le statut de la page à 1 (publié)
             $pages->save();
         
             header('Location: /pages');  // Redirige l'utilisateur vers la liste des pages
         }
+        
 
 
         //read page front
@@ -134,20 +147,28 @@ class Pages {
     //unpublished page
 
     public function unpublish($params): void
-{
-    $id = $params['id'];  // Récupère l'ID de la page à partir des paramètres de l'URL
-
-    $pagesModel = new PagesModel();
-    $pages = $pagesModel->getOneWhere(["id"=> $id ]);  
-    if (!$pages) {
-        throw new \Exception('Page not found');
+    {
+        $id = $params['id'];  // Récupère l'ID de la page à partir des paramètres de l'URL
+    
+        $pagesModel = new PagesModel();
+        $pages = $pagesModel->getOneWhere(["id"=> $id ]);  
+        if (!$pages) {
+            throw new \Exception('Page not found');
+        }
+    
+        // Vérifie si la liste des mementos n'est pas vide avant de tenter d'obtenir le memento
+        $origin = $this->caretaker->getMemento(0);
+        if ($origin) {
+            $origin->restoreMemento($origin);
+        }
+    
+        $pages->setStatus(0);  // Change le statut de la page à 0 (non publié)
+        $pages->save();
+    
+        header('Location: /pages');  // Redirige l'utilisateur vers la liste des pages
     }
+    
 
-    $pages->setStatus(0);  // Change le statut de la page à 0 (non publié)
-    $pages->save();
-
-    header('Location: /pages');  // Redirige l'utilisateur vers la liste des pages
-}
 
 
 

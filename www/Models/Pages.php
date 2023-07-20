@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-
+use App\Memento\Memento;
 use App\Models\Pages as PagesModel;
 use App\Core\SQL;
 
@@ -165,6 +165,17 @@ class Pages extends SQL{
     public function setStatus(int $status): void
     {
         $this->status = $status;
+    }
+
+ //memento pattern
+    public function createMemento(): Memento
+    {
+        return new Memento($this->getStatus());
+    }
+
+    public function restoreMemento(Memento $memento)
+    {
+        $this->setStatus($memento->getState());
     }
     
 
