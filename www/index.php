@@ -1,6 +1,19 @@
+<?php 
+namespace App; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script src="installer.js"></script>
+
+</head>
+<body>
+
 <?php
 
-namespace App;
 
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';   
