@@ -5,25 +5,21 @@ export default function Step2() {
         type: "div",
         children: [
             {
-                type: BrowserLink,
-                attributes: {
-                    title: "Step1",
-                    path: "/page1",
-                },
-            },
-            {
                 type: "div",
                 attributes: {
                     id: "page2",
                 },
-                children: Array.from({ length: 10 }, function (_, index) {
-                    return {
-                        type: "img",
-                        attributes: {
-                            src: `https://picsum.photos/200/300?random=${index}`,
-                        },
-                    };
-                }),
+            },
+            {
+                type: "h1",
+                children: ["Step 2"],
+            },
+            {
+                type: BrowserLink,
+                attributes: {
+                    title: "Step3",
+                    path: "/step-three",
+                },
             },
         ],
     };

@@ -30,7 +30,7 @@
 
     <div class="text-center mt-6">
         <input type="submit" name="submit" value="<?= $config["config"]["submit"] ?>" class="bg-gray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150">
-        <input type="reset" value="<?= $config["config"]["reset"] ?>">
+        <input type="reset" value="<?= $config["config"]["reset"] ?>" class="bg-gray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150">
     </div>
 
 </form>

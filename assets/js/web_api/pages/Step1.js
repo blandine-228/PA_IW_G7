@@ -9,13 +9,13 @@ export default function Step1() {
         children: [
             {
                 type: "h1",
-                children: ["Page 1"],
+                children: ["Step 1"],
             },
             {
                 type: BrowserLink,
                 attributes: {
                     title: "Step2",
-                    path: "/page2",
+                    path: "/step-two",
                 },
             },
         ],

@@ -9,14 +9,7 @@ export default function Recap() {
         children: [
             {
                 type: "h1",
-                children: ["Page 1"],
-            },
-            {
-                type: BrowserLink,
-                attributes: {
-                    title: "Recap",
-                    path: "/recap",
-                },
+                children: ["Récapitulatif"],
             },
         ],
     };

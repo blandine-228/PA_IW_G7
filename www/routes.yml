@@ -2,7 +2,7 @@ default:
   controller: Main
   action: home
 
-a-propos:
+about-us:
   controller: Main
   action: aboutUs
 
@@ -18,7 +18,7 @@ logout:
   controller: Auth
   action: logout
 
-s-inscrire:
+register:
   controller: Auth
   action: register
 
@@ -26,9 +26,17 @@ dashboard:
   controller: Dashboard
   action: index
 
-installer:
+installer/step1:
   controller: Backoffice
-  action: installer
+  action: step1
+
+installer/step2:
+  controller: Backoffice
+  action: step2
+
+#installer/api:
+#  controller: Api
+#  action: none
 
 404:
   controller: Main

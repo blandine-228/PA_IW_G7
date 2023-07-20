@@ -4,18 +4,18 @@ export default function Step3() {
     return {
         type: "div",
         attributes: {
-            id: "page1",
+            id: "step3",
         },
         children: [
             {
                 type: "h1",
-                children: ["Page 1"],
+                children: ["Step 3"],
             },
             {
                 type: BrowserLink,
                 attributes: {
-                    title: "Step2",
-                    path: "/page2",
+                    title: "Recap",
+                    path: "/recap",
                 },
             },
         ],

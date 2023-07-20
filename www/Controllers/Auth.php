@@ -24,19 +24,6 @@ class Auth
 
             // Chercher l'utilisateur par email
             $user = $user->getOneWhere(["email" => $email]);
-    
-            // Vérifier si l'utilisateur existe et le mot de passe est correct
-            if ($user && password_verify($password, $user->getPwd())){
-                // Authentification réussie
-                // Redirigez l'utilisateur vers la page d'accueil ou une autre page appropriée
-                header('Location: /dashboard');
-                exit;
-            } else {
-                // Authentification échouée
-                // Ajoutez un message d'erreur à afficher dans le formulaire de connexion
-               echo "Erreur d'authentification";
-            }
-
         }
     }
 

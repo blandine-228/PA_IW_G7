@@ -8,16 +8,4 @@ export default {
     "/step-two": Step2,
     "/step-three": Step3,
     "/recap:": Recap,
-    //  "/page3": {
-    //    component: Page3,
-    //    attributes: {
-    //      id: 5,
-    //    },
-    //  },
-    "/exo": {
-        component: Exo,
-        attributes: {
-            cols: 10,
-        },
-    },
 };
