@@ -16,6 +16,11 @@ use App\Memento\Origin;
 class Pages {
 
     public function read() {
+
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         // Récupérer toutes les pages
         $pages =  PagesModel::getInstance();
         $allPages = $pages->getAll();
@@ -30,6 +35,10 @@ class Pages {
 
     public function create(): void
     {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         $form = new PagesForm();
         $view = new View("Pages/create", "back");
         $view->assign("form", $form->getConfig());
@@ -60,6 +69,10 @@ class Pages {
 
     public function update($params): void
     {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         $id = $params['id'];  // Récupère l'ID de l'utilisateur à partir des paramètres de l'URL
         
         $pagesModel = new PagesModel();
@@ -87,6 +100,10 @@ class Pages {
 
         public function delete($params): void
         {
+            if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+                header('Location: /login');
+                exit();
+            }
             $id = $params['id'];
         
             $pages =  PagesModel::getInstance();
@@ -110,6 +127,10 @@ class Pages {
 
         public function publish($params): void
         {
+            if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+                header('Location: /login');
+                exit();
+            }
             $id = $params['id'];  // Récupère l'ID de la page à partir des paramètres de l'URL
         
             $pagesModel = new PagesModel();
@@ -134,6 +155,10 @@ class Pages {
 
     public function unpublish($params): void
     {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         $id = $params['id'];  // Récupère l'ID de la page à partir des paramètres de l'URL
     
         $pagesModel = new PagesModel();
@@ -171,7 +196,6 @@ public function show(): void
 
     if (!$page) {
         http_response_code(404);
-        include('path/to/your/404.php');
         exit;
     }
 

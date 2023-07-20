@@ -11,6 +11,10 @@ use App\Forms\UserForm;
 
 class User {
     public function read() {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         // Récupérer tous les utilisateurs
         $user =  UserModel::getInstance();
         $allUsers = $user->getAll();
@@ -24,7 +28,11 @@ class User {
     }
 
     public function create(): void
-    {
+    { 
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         $form = new UserForm();
         $view = new View("User/create", "back");
         $view->assign("form", $form->getConfig());
@@ -39,11 +47,16 @@ class User {
             $user->setRole($_POST['role']);
             $user->setStatus(1); // Mettre le statut à 1, puisque l'admin crée l'utilisateur
             $user->save();
+            header('Location: /users');
         }
     }
     
     public function update($params): void
     {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         $id = $params['id'];  // Récupère l'ID de l'utilisateur à partir des paramètres de l'URL
     
         $userModel = new UserModel();
@@ -77,6 +90,10 @@ class User {
 
     public function delete($params): void
     {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         $id = $params['id'];  // Récupère l'ID de l'utilisateur à partir des paramètres de l'URL
     
         $user =  UserModel::getInstance();
