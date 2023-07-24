@@ -70,7 +70,10 @@ class Comment
 
     public function read()
     {
-        
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         // Récupérer tous les articles depuis la base de données
         $article = CommentModel::getInstance();
         $allArticles = $article->getAll();
@@ -84,6 +87,11 @@ class Comment
     
     public function approve()
 {
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        header('Location: /login');
+        exit();
+    }
+    
     // Vérifiez si l'utilisateur est connecté et s'il est un administrateur
     // Ajoutez ici le code de vérification de l'administrateur, cela dépend de la façon dont vous gérez les utilisateurs et les rôles
 
@@ -119,6 +127,10 @@ class Comment
 
 public function delete()
 {
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        header('Location: /login');
+        exit();
+    }
     // Vérifiez si l'utilisateur est connecté et s'il est un administrateur
     // Ajoutez ici le code de vérification de l'administrateur, cela dépend de la façon dont vous gérez les utilisateurs et les rôles
 

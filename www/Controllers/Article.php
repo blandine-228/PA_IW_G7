@@ -15,7 +15,10 @@ class Article{
     
     public function read()
     {
-        
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         // Récupérer tous les articles depuis la base de données
         $article = ArticleModel::getInstance();
         $allArticles = $article->getAll();
@@ -29,6 +32,10 @@ class Article{
 
     public function create(): void
     {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         $form = new ArticleForm();
         $view = new View("Article/create", "back");
         $view->assign("form", $form->getConfig());
@@ -52,6 +59,10 @@ class Article{
     //update article
     public function update($params): void
     {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: /login');
+            exit();
+        }
         $id = $params['id'];  // Récupère l'ID de l'utilisateur à partir des paramètres de l'URL
     
         $articleModel = new ArticleModel();
@@ -78,6 +89,10 @@ class Article{
     //delete article
     public function delete($params): void
 {
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        header('Location: /login');
+        exit();
+    }
     if (!isset($params['id'])) {
         throw new \Exception('Article ID not provided');
     }
